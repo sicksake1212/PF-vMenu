@@ -148,6 +148,7 @@ namespace vMenuShared
             PVAll,
             PVToggleEngine,
             PVToggleLights,
+            PVToggleStance,
             PVKickPassengers,
             PVLockDoors,
             PVDoors,
@@ -296,10 +297,15 @@ namespace vMenuShared
             WPStoneHatchet, // xmas 2018 dlc (1604)
             WPCeramicPistol, // xmas 2019 dlc (1868)
             WPNavyRevolver, // xmas 2019 dlc (1868)
-            //WPHazardCan, // xmas 2019 dlc (1868) (Does not have label text)
+            WPHazardCan, // xmas 2019 dlc (1868) (Does not have label text)
             WPPericoPistol, // xmas 2020 dlc (2189)
             WPMilitaryRifle, // xmas 2020 dlc (2189)
             WPCombatShotgun, // xmas 2020 dlc (2189)
+            // MPSECURITY DLC (v 2545)
+            WPEMPLauncher,
+            WPHeavyRifle,
+            WPFertilizerCan,
+            WPStunGunMP,
             #endregion
 
             // Weapon Loadouts Menu

@@ -219,6 +219,11 @@ namespace vMenuClient
             { "weapon_gadgetpistol", GetLabelText("WTD_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WTD_MLTRYRFL") },
             { "weapon_combatshotgun", GetLabelText("WTD_CMBSHGN") }
+            // MPSECURITY DLC (v 2545)
+            { "weapon_emplauncher", GetLabelText("WTD_EMPL") },
+            { "weapon_heavyrifle", GetLabelText("WTD_HEAVYRIFLE") },
+            { "weapon_fertilizercan", GetLabelText("WTD_FERTILIZERCAN") },
+            { "weapon_stungun_mp", GetLabelText("WTD_STNGUNMP") },
         };
 
         public static readonly Dictionary<string, string> weaponNames = new Dictionary<string, string>()
@@ -317,11 +322,16 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             { "weapon_ceramicpistol", GetLabelText("WT_CERPST") },
             { "weapon_navyrevolver", GetLabelText("WT_REV_NV") },
-            //{ "weapon_hazardcan", GetLabelText("WT_") }, (Does not have label text)
+            { "weapon_hazardcan", GetLabelText("WT_") }, (Does not have label text)
             // DLC CHRISTMAS2020 (v 2189)
             { "weapon_gadgetpistol", GetLabelText("WT_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WT_MLTRYRFL") },
-            { "weapon_combatshotgun", GetLabelText("WT_CMBSHGN") }
+            { "weapon_combatshotgun", GetLabelText("WT_CMBSHGN") },
+            // MPSECURITY DLC (v 2545)
+            { "weapon_emplauncher", GetLabelText("WT_EMPL") },
+            { "weapon_heavyrifle", GetLabelText("WT_HEAVYRIFLE") },
+            { "weapon_fertilizercan", GetLabelText("WT_FERTILIZERCAN") },
+            { "weapon_stungun_mp", GetLabelText("WT_STNGUNMP") }
         };
         #endregion
 
@@ -422,11 +432,16 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             ["weapon_ceramicpistol"] = Permission.WPCeramicPistol,
             ["weapon_navyrevolver"] = Permission.WPNavyRevolver,
-            //["weapon_hazardcan"] = Permission.WPHazardCan, (Does not have label text)
+            ["weapon_hazardcan"] = Permission.WPHazardCan, (Does not have label text)
             // DLC CHRISTMAS2020 (v 2189)
             ["weapon_gadgetpistol"] = Permission.WPPericoPistol,
             ["weapon_militaryrifle"] = Permission.WPMilitaryRifle,
             ["weapon_combatshotgun"] = Permission.WPCombatShotgun,
+            // MPSECURITY DLC (v 2545)
+            ["weapon_emplauncher"] = Permission.WPEMPLauncher,
+            ["weapon_heavyrifle"] = Permission.WPHeavyRifle,
+            ["weapon_fertilizercan"] = Permission.WPFertilizerCan,
+            ["weapon_stungun_mp"] = Permission.WPStunGunMP,
         };
         #endregion
 
@@ -791,6 +806,22 @@ namespace vMenuClient
             ["COMPONENT_VINTAGEPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
             // CHRISTMAS 2018 DLC (v 1604)
             ["COMPONENT_RAYPISTOL_VARMOD_XMAS18"] = GetLabelText("WCT_VAR_RAY18")
+            // MPHEIST3 DLC (v 1868)
+            ["COMPONENT_CERAMICPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
+            ["COMPONENT_CERAMICPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
+            ["COMPONENT_CERAMICPISTOL_SUPP"] = GetLabelText("WCT_SUPP"),
+            // MPHEIST4 DLC (v 2189)
+            ["COMPONENT_MILITARYRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
+            ["COMPONENT_MILITARYRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
+            ["COMPONENT_MILITARYRIFLE_SIGHT_01"] = GetLabelText("WCT_MRFL_SIGHT"),
+            // MPSECURITY DLC (v 2545)
+            ["COMPONENT_APPISTOL_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_STUD"),
+            ["COMPONENT_MICROSMG_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_WEED"),
+            ["COMPONENT_PUMPSHOTGUN_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_BONE"),
+            ["COMPONENT_HEAVYRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
+            ["COMPONENT_HEAVYRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
+            ["COMPONENT_HEAVYRIFLE_SIGHT_01"] = GetLabelText("WCT_HVYRFLE_SIG"),
+            ["COMPONENT_HEAVYRIFLE_CAMO1"] = GetLabelText("WCT_VAR_FAM"),
         };
         #endregion
 
