@@ -1,13 +1,5 @@
-#### Latest Builds
-
-##### Latest AppVeyor build
-
-|Latest Build|
-|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/inf2kinljmp8a5ul?svg=true)](https://ci.appveyor.com/project/TomGrobbe/vmenu)|
-
---------
-
+# Project Fairness vMenu
+The vMenu for Project Fairness. All actions are subject to change.
 
 # vMenu
 vMenu is server sided menu for FiveM servers, including full\* permission support.
