@@ -1,5 +1,5 @@
 # Project Fairness vMenu
-The vMenu for Project Fairness. All actions are subject to change.
+The vMenu for Project Fairness and other affiliated server, with PFSync. All actions are subject to change.
 
 # vMenu
 vMenu is server sided menu for FiveM servers, including full\* permission support.
