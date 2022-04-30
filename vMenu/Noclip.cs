@@ -44,6 +44,7 @@ namespace vMenuClient
         {
             if (NoclipActive)
             {
+                TriggerEvent("mosh_notify:notify", "SUCCESS", "<span class=\"text-white\">You are now in NoClip! Press F2 to turn off NoClip.</span>", "success", "success", 5000);
                 Scale = RequestScaleformMovie("INSTRUCTIONAL_BUTTONS");
                 while (!HasScaleformMovieLoaded(Scale))
                 {

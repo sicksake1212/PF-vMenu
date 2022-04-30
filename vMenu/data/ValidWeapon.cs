@@ -218,7 +218,7 @@ namespace vMenuClient
             // DLC CHRISTMAS2020 (v 2189)
             { "weapon_gadgetpistol", GetLabelText("WTD_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WTD_MLTRYRFL") },
-            { "weapon_combatshotgun", GetLabelText("WTD_CMBSHGN") }
+            { "weapon_combatshotgun", GetLabelText("WTD_CMBSHGN") },
             // MPSECURITY DLC (v 2545)
             { "weapon_emplauncher", GetLabelText("WTD_EMPL") },
             { "weapon_heavyrifle", GetLabelText("WTD_HEAVYRIFLE") },
@@ -322,7 +322,7 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             { "weapon_ceramicpistol", GetLabelText("WT_CERPST") },
             { "weapon_navyrevolver", GetLabelText("WT_REV_NV") },
-            { "weapon_hazardcan", GetLabelText("WT_") }, (Does not have label text)
+            { "weapon_hazardcan", GetLabelText("WT_HAZARDCAN") },
             // DLC CHRISTMAS2020 (v 2189)
             { "weapon_gadgetpistol", GetLabelText("WT_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WT_MLTRYRFL") },
@@ -432,7 +432,7 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             ["weapon_ceramicpistol"] = Permission.WPCeramicPistol,
             ["weapon_navyrevolver"] = Permission.WPNavyRevolver,
-            ["weapon_hazardcan"] = Permission.WPHazardCan, (Does not have label text)
+            ["weapon_hazardcan"] = Permission.WPHazardCan,
             // DLC CHRISTMAS2020 (v 2189)
             ["weapon_gadgetpistol"] = Permission.WPPericoPistol,
             ["weapon_militaryrifle"] = Permission.WPMilitaryRifle,
@@ -805,7 +805,7 @@ namespace vMenuClient
             ["COMPONENT_VINTAGEPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
             ["COMPONENT_VINTAGEPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
             // CHRISTMAS 2018 DLC (v 1604)
-            ["COMPONENT_RAYPISTOL_VARMOD_XMAS18"] = GetLabelText("WCT_VAR_RAY18")
+            ["COMPONENT_RAYPISTOL_VARMOD_XMAS18"] = GetLabelText("WCT_VAR_RAY18"),
             // MPHEIST3 DLC (v 1868)
             ["COMPONENT_CERAMICPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
             ["COMPONENT_CERAMICPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
