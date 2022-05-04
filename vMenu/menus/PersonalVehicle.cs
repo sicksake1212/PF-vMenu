@@ -51,7 +51,7 @@ namespace vMenuClient
             MenuItem soundHorn = new MenuItem("Sound Horn", "Sounds the horn of the vehicle.");
             MenuItem toggleAlarm = new MenuItem("Toggle Alarm Sound", "Toggles the vehicle alarm sound on or off. This does not set an alarm. It only toggles the current sounding status of the alarm.");
             MenuCheckboxItem enableBlip = new MenuCheckboxItem("Add Blip For Personal Vehicle", "Enables or disables the blip that gets added when you mark a vehicle as your personal vehicle.", EnableVehicleBlip) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
-            MenuCheckboxItem exclusiveDriver = new MenuCheckboxItem("Exclusive Driver", "If enabled, then you will be the only one that can enter the drivers seat. Other players will not be able to drive the car. They can still be passengers.", false) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
+            MenuCheckboxItem exclusiveDriver = new MenuCheckboxItem("Exclusive Driver", "If enabled, then you will be the only one that can enter the drivers seat. Other players will not be able to drive the car, however, they can still be passengers.", false) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
             //submenu
             VehicleDoorsMenu = new Menu("Vehicle Doors", "Vehicle Doors Management");
             MenuController.AddSubmenu(menu, VehicleDoorsMenu);
@@ -168,7 +168,7 @@ namespace vMenuClient
                 }
                 else
                 {
-                    Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
+                    Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
                 }
             };
 
@@ -191,7 +191,7 @@ namespace vMenuClient
                         }
                         else
                         {
-                            Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
+                            Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
                         }
 
                     }
@@ -330,7 +330,7 @@ namespace vMenuClient
                 }
                 else
                 {
-                    Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
+                    Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
                 }
             };
 
