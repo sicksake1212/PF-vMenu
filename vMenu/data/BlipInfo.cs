@@ -97,6 +97,49 @@ namespace vMenuClient
                 { (uint)GetHashKey("oppressor2"), 639 },
                 { (uint)GetHashKey("strikeforce"), 640 }
                 //
+                { (uint)GetHashKey("bruiser"), 658 }
+                { (uint)GetHashKey("bruiser2"), 658 }
+                { (uint)GetHashKey("bruiser3"), 658 }
+                { (uint)GetHashKey("brutus"), 659 }
+                { (uint)GetHashKey("brutus2"), 659 }
+                { (uint)GetHashKey("brutus3"), 659 }
+                { (uint)GetHashKey("cerberus"), 660 }
+                { (uint)GetHashKey("cerberus2"), 660 }
+                { (uint)GetHashKey("cerberus3"), 660 }
+                { (uint)GetHashKey("deathbike"), 661 }
+                { (uint)GetHashKey("deathbike2"), 661 }
+                { (uint)GetHashKey("deathbike3"), 661 }
+                { (uint)GetHashKey("dominator4"), 662 }
+                { (uint)GetHashKey("dominator5"), 662 }
+                { (uint)GetHashKey("dominator6"), 662 }
+                { (uint)GetHashKey("impaler2"), 663 }
+                { (uint)GetHashKey("impaler3"), 663 }
+                { (uint)GetHashKey("impaler4"), 663 }
+                { (uint)GetHashKey("imperator"), 664 }
+                { (uint)GetHashKey("imperator2"), 664 }
+                { (uint)GetHashKey("imperator3"), 664 }
+                { (uint)GetHashKey("issi4"), 665 }
+                { (uint)GetHashKey("issi5"), 665 }
+                { (uint)GetHashKey("issi6"), 665 }
+                { (uint)GetHashKey("monster4"), 666 }
+                { (uint)GetHashKey("monster5"), 666 }
+                { (uint)GetHashKey("monster6"), 666 }
+                { (uint)GetHashKey("scarab"), 667 }
+                { (uint)GetHashKey("scarab2"), 667 }
+                { (uint)GetHashKey("scarab3"), 667 }
+                { (uint)GetHashKey("slamvan4"), 668 }
+                { (uint)GetHashKey("slamvan5"), 668 }
+                { (uint)GetHashKey("slamvan6"), 668 }
+                { (uint)GetHashKey("zr380"), 669 }
+                { (uint)GetHashKey("zr3802"), 669 }
+                { (uint)GetHashKey("zr3803"), 669 }
+                //
+                { (uint)GetHashKey("everon"), 734 }
+                { (uint)GetHashKey("outlaw"), 735 }
+                { (uint)GetHashKey("vagrant"), 736 }
+                { (uint)GetHashKey("zhaba"), 737 }
+                { (uint)GetHashKey("minitank"), 742 }
+                //
             };
 
             if (sprites.ContainsKey(model))
