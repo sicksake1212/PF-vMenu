@@ -82,6 +82,21 @@ namespace vMenuClient
                 { (uint)GetHashKey("barrage"), 601 },
                 { (uint)GetHashKey("akula"), 602 },
                 { (uint)GetHashKey("chernobog"), 603 },
+                //
+                { (uint)GetHashKey("seasparrow"), 612 },
+                { (uint)GetHashKey("caracara"), 613 },
+                //
+                { (uint)GetHashKey("pbus2"), 631 },
+                { (uint)GetHashKey("terbyte"), 632 },
+                { (uint)GetHashKey("menacer"), 633 },
+                { (uint)GetHashKey("scramjet"), 634 },
+                { (uint)GetHashKey("pounder2"), 635 },
+                { (uint)GetHashKey("mule4"), 636 },
+                { (uint)GetHashKey("speedo4"), 637 },
+                { (uint)GetHashKey("blimp3"), 638 },
+                { (uint)GetHashKey("oppressor2"), 639 },
+                { (uint)GetHashKey("strikeforce"), 640 }
+                //
             };
 
             if (sprites.ContainsKey(model))
