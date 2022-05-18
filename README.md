@@ -7,40 +7,34 @@ vMenu is server sided menu for FiveM servers, including full\* permission suppor
 
 \*(Some features do not have permissions support as they are either harmless or it'd just be silly to deny them. However, they will be disabled if you deny access to the submenu that they are a part of (eg: unlimited stamina in Player Options will be disabled if you deny `vMenu.PlayerOptions.Menu`.))
 
+The intention of this vMenu is to create the ultimate vMenu from Vespura's resources, while also achieving the same features seen on other servers such as Rockstar Mischief and Impulse99, which have a modified vMenu, while adding and integrating new features inside of said vMenu.
+
 --------
 
 # Download & Installation & Permissions
 
 ## Download
+Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for the original version.
 
-Click [here](https://github.com/TomGrobbe/vMenu/releases) to go to the releases page and download it.
+--------
+
+## Compiling of the Project Fairness vMenu
+Compiling the vMenu is quite easy and straight-forward, if you have Visual Studio. By grabbing the NuGet packages for CitizenFX.Core.Client and CitizenFX.Core.Server as well as the NuGet package for MenuAPI, all you have to do is compile and that's it. All support of the Projectr Fairness vMenu will never be receiving troubleshoot support by Vespura, so do not bother asking for support to him. This is a fork of his project. Please pull a Issue request if you have any problems with this vMenu.
 
 --------
 
 ## Installation
 Please follow the instructions over at the [vMenu docs](https://docs.vespura.com/vmenu/installation)
 
-## Zap Hosting
-If you're using Zap Hosting, you may find that moving the `permissions.cfg` file to the same folder as your `server.cfg` file may not work correctly (it could get reset every time you restart your server).
-
-If this is the case, leave your `permissions.cfg` file here: `/resources/vMenu/config/permissions.cfg` and add the following to the very top of your server.cfg file: `exec resources/vMenu/config/permissions.cfg` (instead of `exec permissions.cfg`).
-
-You can also use ZAP Hosting's one-click installer for vMenu. Get a ZAP-Hosting server with a 10% lifetime discount [HERE](https://zap-hosting.com/vespura) and make sure to use `Vespura-a-3715` at checkout.
-
 --------
 
 ## Support
-If you like my work, please consider supporting me on [**Patreon**](https://www.patreon.com/vespura). I've put a _lot_ of my time and hard work into these and other projects.
+If you like Vespura's work, please consider supporting him on [**Patreon**](https://www.patreon.com/vespura). He's put a _lot_ of my time and hard work into his vMenu and other projects.
 
 --------
 
-## Trouble shooting & support
-Take a look at the docs first of all. I will ignore you if your question is answered on the docs or the forum topic.
-
-- [docs](https://docs.vespura.com/vmenu/)
-- [forum topic](https://vespura.com/vmenu)
-- [discord](https://vespura.com/discord)
-
+## Pull Requests
+We are glad at accepting Pull Requests to add more features overtime to our vMenu, meaning we can add more features that can be similar to other vMenu clients.
 
 --------
 
