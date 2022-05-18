@@ -143,6 +143,7 @@ namespace vMenuClient
                         {
                             MovingSpeed = 0;
                         }
+                        TriggerEvent("mosh_notify:notify", "SUCCESS", $"<span class=\"text-white\">Your NoClip speed is: {speeds[MovingSpeed]}.</span>", "success", "success", 3000);
                     }
 
                     if (Game.IsDisabledControlPressed(0, Control.MoveUpOnly))
@@ -176,7 +177,7 @@ namespace vMenuClient
                 }
                 float moveSpeed = MovingSpeed;
                 if (MovingSpeed > speeds.Count / 2)
-                {
+                {                    
                     moveSpeed *= 1.8f;
                 }
                 moveSpeed = moveSpeed / (1f / GetFrameTime()) * 60;
