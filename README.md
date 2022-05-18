@@ -13,6 +13,9 @@ The intention of this vMenu is to create the ultimate vMenu from Vespura's resou
 
 # Download & Installation & Permissions
 
+## Requirements
+This custom vMenu requires you to utilize the latest version of [mosh_notify](https://forum.cfx.re/t/release-free-mosh-notify-fivem-custom-notifications-with-loadbar/2614951) for our modifications.
+
 ## Download
 Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for the original version.
 
