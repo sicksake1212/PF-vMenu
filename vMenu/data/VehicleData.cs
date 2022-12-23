@@ -261,6 +261,31 @@ namespace vMenuClient
             new VehicleColor(133, "OLIVE_GREEN"),
         };
 
+        public static readonly List<VehicleColor> ChameleonColors = new List<VehicleColor>()
+        {
+            new VehicleColor(223, "YKTA_MONOCHROME"),
+            new VehicleColor(224, "YKTA_NITE_DAY"),
+            new VehicleColor(225, "YKTA_VERLIERER2"),
+            new VehicleColor(226, "YKTA_SPRUNK_EX"),
+            new VehicleColor(227, "YKTA_VICE_CITY"),
+            new VehicleColor(228, "YKTA_SYNTHWAVE"),
+            new VehicleColor(229, "YKTA_FOUR_SEASO"),
+            new VehicleColor(230, "YKTA_M9_THROWBA"),
+            new VehicleColor(231, "YKTA_BUBBLEGUM"),
+            new VehicleColor(232, "YKTA_FULL_RBOW"),
+            new VehicleColor(233, "YKTA_SUNSETS"),
+            new VehicleColor(234, "YKTA_THE_SEVEN"),
+            new VehicleColor(235, "YKTA_KAMENRIDER"),
+            new VehicleColor(236, "YKTA_CHROMABERA"),
+            new VehicleColor(237, "YKTA_CHRISTMAS"),
+            new VehicleColor(238, "YKTA_TEMPERATUR"),
+            new VehicleColor(239, "YKTA_HSW"),
+            new VehicleColor(240, "YKTA_ELECTRO"),
+            new VehicleColor(241, "YKTA_MONIKA"),
+            new VehicleColor(242, "YKTA_FUBUKI"),
+
+        };
+
         public static class Vehicles
         {
             #region Vehicle List Per Class

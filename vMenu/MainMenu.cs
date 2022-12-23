@@ -37,7 +37,7 @@ namespace vMenuClient
         public static VehicleSpawner VehicleSpawnerMenu { get; private set; }
         public static PlayerAppearance PlayerAppearanceMenu { get; private set; }
         public static MpPedCustomization MpPedCustomizationMenu { get; private set; }
-        public static PlayerTimeWeatherOptions PlayerTimeWeatherOptionsMenu { get; private set; }
+        //public static PlayerTimeWeatherOptions PlayerTimeWeatherOptionsMenu { get; private set; }
         public static TimeOptions TimeOptionsMenu { get; private set; }
         public static WeatherOptions WeatherOptionsMenu { get; private set; }
         public static WeaponOptions WeaponOptionsMenu { get; private set; }
@@ -706,15 +706,15 @@ namespace vMenuClient
                 };
                 AddMenu(WorldSubmenu, menu, button);
             }
-            {
-                PlayerTimeWeatherOptionsMenu = new PlayerTimeWeatherOptions();
-                Menu menu2 = PlayerTimeWeatherOptionsMenu.GetMenu();
-                MenuItem button2 = new MenuItem("Time & Weather Options", "Change all time & weather related options here.")
-                {
-                    Label = "→→→"
-                };
-                AddMenu(Menu, menu2, button2);
-            }
+            //{
+               // PlayerTimeWeatherOptionsMenu = new PlayerTimeWeatherOptions();
+               // Menu menu2 = PlayerTimeWeatherOptionsMenu.GetMenu();
+                //MenuItem button2 = new MenuItem("Time & Weather Options", "Change all time & weather related options here.")
+                //{
+                //    Label = "→→→"
+                //};
+                //AddMenu(Menu, menu2, button2);
+            //}
             // Add the weather options menu.
             // check for 'not true' to make sure that it _ONLY_ gets disabled if the owner _REALLY_ wants it disabled, not if they accidentally spelled "false" wrong or whatever.
             if (IsAllowed(Permission.WOMenu) && GetSettingsBool(Setting.vmenu_enable_weather_sync))

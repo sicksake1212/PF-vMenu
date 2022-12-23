@@ -82,8 +82,8 @@ namespace vMenuClient
                 Tick += TimeOptions;
             }
             
-            Tick += PlayerTimeOptions;
-            Tick += PlayerWeatherOptions;
+            // Tick += PlayerTimeOptions;
+            // Tick += PlayerWeatherOptions;
 
             // Configuration based
             if (!GetSettingsBool(Setting.vmenu_disable_spawning_as_default_character))
@@ -3167,22 +3167,22 @@ namespace vMenuClient
         }
         #endregion
         // Client Time and Weather
-        #region Time & Weather Options
-        public async Task PlayerWeatherOptions()
-        {
-            await Delay(100);
-            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
-            {
-                ClearOverrideWeather();
-                ClearWeatherTypePersist();
-                SetWeatherTypeOverTime(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection(), 0.0f);
-                SetWeatherTypePersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-                SetWeatherTypeNow(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-                SetWeatherTypeNowPersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-            }
-        }
+        // #region Time & Weather Options
+        // public async Task PlayerWeatherOptions()
+        //{
+        //    await Delay(100);
+        //    if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
+        //    {
+        //        ClearOverrideWeather();
+        //        ClearWeatherTypePersist();
+        //        SetWeatherTypeOverTime(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection(), 0.0f);
+        //        SetWeatherTypePersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+        //        SetWeatherTypeNow(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+        //        SetWeatherTypeNowPersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+        //    }
+        //}
 
-        public async Task PlayerTimeOptions()
+        /*public async Task PlayerTimeOptions()
         {
             await Delay(100);
             if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
@@ -3191,6 +3191,6 @@ namespace vMenuClient
                 PauseClock(MainMenu.PlayerTimeWeatherOptionsMenu.timeFrozen.Checked);
             }
         }
-        #endregion
+        #endregion*/
     }
 }
