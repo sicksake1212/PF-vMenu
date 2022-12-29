@@ -21,14 +21,14 @@ namespace vMenuClient
         private void CreateMenu()
         {
             // Create the menu.
-            menu = new Menu("vMenu", "About vMenu");
+            menu = new Menu("vMenu", "About PF-vMenu");
 
             // Create menu items.
             MenuItem version = new MenuItem("vMenu Version", $"This server is using vMenu ~b~~h~{MainMenu.Version}~h~~s~.")
             {
                 Label = $"~h~{MainMenu.Version}~h~"
             };
-            MenuItem credits = new MenuItem("About vMenu / Credits", "vMenu is made by ~b~Vespura~s~. Extra modifications are done by members of ~s~Project Fairness Labs~s~.");
+            MenuItem credits = new MenuItem("About vMenu / Credits", "vMenu is made by ~b~Vespura~s~. Extra modifications are done by members of ~b~Project Fairness Labs~b~.");
 
             string serverInfoMessage = vMenuShared.ConfigManager.GetSettingsString(vMenuShared.ConfigManager.Setting.vmenu_server_info_message);
             if (!string.IsNullOrEmpty(serverInfoMessage))

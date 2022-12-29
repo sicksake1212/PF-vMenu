@@ -380,6 +380,7 @@ namespace vMenuClient
         /// <param name="jsonData"></param>
         private void UpdateTeleportLocations(string jsonData)
         {
+            TeleportOptions.TpLocations = JsonConvert.DeserializeObject<List<vMenuShared.ConfigManager.TeleportLocation>>(jsonData);
             MiscSettings.TpLocations = JsonConvert.DeserializeObject<List<vMenuShared.ConfigManager.TeleportLocation>>(jsonData);
         }
     }

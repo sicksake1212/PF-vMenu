@@ -82,8 +82,7 @@ namespace vMenuClient
                 Tick += TimeOptions;
             }
             
-            // Tick += PlayerTimeOptions;
-            // Tick += PlayerWeatherOptions;
+            Tick += TeleportOptions;
 
             // Configuration based
             if (!GetSettingsBool(Setting.vmenu_disable_spawning_as_default_character))
@@ -881,27 +880,6 @@ namespace vMenuClient
             }
             #endregion
 
-            if (MainMenu.MiscSettingsMenu.KbTpToWaypoint)
-            {
-                if (IsAllowed(Permission.MSTeleportToWp))
-                {
-                    if (Game.IsControlJustReleased(0, (Control)MainMenu.MiscSettingsMenu.KbTpToWaypointKey)
-                        && Fading.IsFadedIn
-                        && !IsPlayerSwitchInProgress()
-                        && Game.CurrentInputMode == InputMode.MouseAndKeyboard)
-                    {
-                        if (Game.IsWaypointActive)
-                        {
-                            TeleportToWp();
-                            Notify.Success("Teleported to waypoint.");
-                        }
-                        else
-                        {
-                            Notify.Error("You need to set a waypoint first.");
-                        }
-                    }
-                }
-            }
             if (MainMenu.MiscSettingsMenu.KbDriftMode)
             {
                 if (IsAllowed(Permission.MSDriftMode))
@@ -3166,31 +3144,32 @@ namespace vMenuClient
             }
         }
         #endregion
-        // Client Time and Weather
-        // #region Time & Weather Options
-        // public async Task PlayerWeatherOptions()
-        //{
-        //    await Delay(100);
-        //    if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
-        //    {
-        //        ClearOverrideWeather();
-        //        ClearWeatherTypePersist();
-        //        SetWeatherTypeOverTime(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection(), 0.0f);
-        //        SetWeatherTypePersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-        //        SetWeatherTypeNow(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-        //        SetWeatherTypeNowPersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-        //    }
-        //}
 
-        /*public async Task PlayerTimeOptions()
+        public async Task TeleportOptions()
         {
             await Delay(100);
-            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
+            if (MainMenu.MiscSettingsMenu.KbTpToWaypoint)
             {
-                NetworkOverrideClockTime(MainMenu.PlayerTimeWeatherOptionsMenu.timeDataList.ListIndex, 0, 0);
-                PauseClock(MainMenu.PlayerTimeWeatherOptionsMenu.timeFrozen.Checked);
+                if (IsAllowed(Permission.MSTeleportToWp))
+                {
+                    if (Game.IsControlJustReleased(0, (Control)MainMenu.MiscSettingsMenu.KbTpToWaypointKey)
+                        && Fading.IsFadedIn
+                        && !IsPlayerSwitchInProgress()
+                        && Game.CurrentInputMode == InputMode.MouseAndKeyboard)
+                    {
+                        if (Game.IsWaypointActive)
+                        {
+                            TeleportToWp();
+                            Notify.Success("Teleported to waypoint.");
+                        }
+                        else
+                        {
+                            Notify.Error("You need to set a waypoint first.");
+                        }
+                    }
+                }
             }
         }
-        #endregion*/
     }
 }
+

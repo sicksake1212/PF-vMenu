@@ -24,7 +24,7 @@ namespace vMenuClient
         public MenuCheckboxItem timeFrozen;
         public MenuListItem timeDataList;
         public static Dictionary<uint, MenuItem> weatherHashMenuIndex = new Dictionary<uint, MenuItem>();
-        public List<string> weatherListData = new List<string>() { "Clear", "Extrasunny", "Clouds", "Overcast", "Rain", "Clearing", "Thunder", "Smog", "Foggy", "Xmas", "Snowlight", "Blizzard", "Snow", "Halloween", "Neutral" };
+        public List<string> weatherListData = new List<string>() { "Clear", "Extra Sunny", "Clouds", "Overcast", "Rain", "Clearing", "Thunder", "Smog", "Foggy", "Xmas", "Snowlight", "Blizzard", "Snow", "Halloween", "Neutral" };
         public MenuListItem weatherList;
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace vMenuClient
             List<string> timeData = new List<string>();
             for (var i = 0; i < 24; i++)
             {
-                timeData.Add(i.ToString() + ".00");
+                timeData.Add(i.ToString() + ":00");
             }
             timeDataList = new MenuListItem("Change Time", timeData, 12, "Select time of day.");
             menu.AddMenuItem(timeDataList);

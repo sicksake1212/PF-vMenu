@@ -263,6 +263,68 @@ namespace vMenuClient
 
         public static readonly List<VehicleColor> ChameleonColors = new List<VehicleColor>()
         {
+            new VehicleColor(161, "ANOD_RED"),
+            new VehicleColor(162, "ANOD_WINE"),
+            new VehicleColor(163, "ANOD_PURPLE"),
+            new VehicleColor(164, "ANOD_BLUE"),
+            new VehicleColor(165, "ANOD_GREEN"),
+            new VehicleColor(166, "ANOD_LIME"),
+            new VehicleColor(167, "ANOD_COPPER"),
+            new VehicleColor(168, "ANOD_BRONZE"),
+            new VehicleColor(169, "ANOD_CHAMPAGNE"),
+            new VehicleColor(170, "ANOD_GOLD"),
+            new VehicleColor(171, "GREEN_BLUE_FLIP"),
+            new VehicleColor(172, "GREEN_RED_FLIP"),
+            new VehicleColor(173, "GREEN_BROW_FLIP"),
+            new VehicleColor(174, "GREEN_TURQ_FLIP"),
+            new VehicleColor(175, "GREEN_PURP_FLIP"),
+            new VehicleColor(176, "TEAL_PURP_FLIP"),
+            new VehicleColor(177, "TURQ_RED_FLIP"),
+            new VehicleColor(178, "TURQ_PURP_FLIP"),
+            new VehicleColor(179, "CYAN_PURP_FLIP"),
+            new VehicleColor(180, "BLUE_PINK_FLIP"),
+            new VehicleColor(181, "BLUE_GREEN_FLIP"),
+            new VehicleColor(182, "PURP_RED_FLIP"),
+            new VehicleColor(183, "PURP_GREEN_FLIP"),
+            new VehicleColor(184, "MAGEN_GREE_FLIP"),
+            new VehicleColor(185, "MAGEN_YELL_FLIP"),
+            new VehicleColor(186, "BURG_GREEN_FLIP"),
+            new VehicleColor(187, "MAGEN_CYAN_FLIP"),
+            new VehicleColor(188, "COPPE_PURP_FLIP"),
+            new VehicleColor(189, "MAGEN_ORAN_FLIP"),
+            new VehicleColor(190, "RED_ORANGE_FLIP"),
+            new VehicleColor(191, "ORANG_PURP_FLIP"),
+            new VehicleColor(192, "ORANG_BLUE_FLIP"),
+            new VehicleColor(193, "WHITE_PURP_FLIP"),
+            new VehicleColor(194, "RED_RAINBO_FLIP"),
+            new VehicleColor(195, "BLU_RAINBO_FLIP"),
+            new VehicleColor(196, "DARKGREENPEARL"),
+            new VehicleColor(197, "DARKTEALPEARL"),
+            new VehicleColor(198, "DARKBLUEPEARL"),
+            new VehicleColor(199, "DARKPURPLEPEARL"),
+            new VehicleColor(200, "OIL_SLICK_PEARL"),
+            new VehicleColor(201, "LIT_GREEN_PEARL"),
+            new VehicleColor(202, "LIT_BLUE_PEARL"),
+            new VehicleColor(203, "LIT_PURP_PEARL"),
+            new VehicleColor(204, "LIT_PINK_PEARL"),
+            new VehicleColor(205, "OFFWHITE_PRISMA"),
+            new VehicleColor(206, "PINK_PEARL"),
+            new VehicleColor(207, "YELLOW_PEARL"),
+            new VehicleColor(208, "GREEN_PEARL"),
+            new VehicleColor(209, "BLUE_PEARL"),
+            new VehicleColor(210, "CREAM_PEARL"),
+            new VehicleColor(211, "WHITE_PRISMA"),
+            new VehicleColor(212, "GRAPHITE_PRISMA"),
+            new VehicleColor(213, "DARKBLUEPRISMA"),
+            new VehicleColor(214, "DARKPURPPRISMA"),
+            new VehicleColor(215, "HOT_PINK_PRISMA"),
+            new VehicleColor(216, "RED_PRISMA"),
+            new VehicleColor(217, "GREEN_PRISMA"),
+            new VehicleColor(218, "BLACK_PRISMA"),
+            new VehicleColor(219, "OIL_SLIC_PRISMA"),
+            new VehicleColor(220, "RAINBOW_PRISMA"),
+            new VehicleColor(221, "BLACK_HOLO"),
+            new VehicleColor(222, "WHITE_HOLO"),
             new VehicleColor(223, "YKTA_MONOCHROME"),
             new VehicleColor(224, "YKTA_NITE_DAY"),
             new VehicleColor(225, "YKTA_VERLIERER2"),
@@ -297,6 +359,7 @@ namespace vMenuClient
                 "BLISTA",
                 "BRIOSO",
                 "BRIOSO2", // CAYO PERICO (MPHEIST4) DLC - Requires b2189
+                "BRIOSO3", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "CLUB", // SUMMER SPECIAL (MPSUM) DLC - Requires b2060
                 "DILETTANTE",
                 "DILETTANTE2",
@@ -337,6 +400,7 @@ namespace vMenuClient
                 "PRIMO",
                 "PRIMO2",
                 "REGINA",
+                "RHINEHART", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "ROMERO",
                 "SCHAFTER2",
                 "SCHAFTER5",
@@ -407,8 +471,10 @@ namespace vMenuClient
                 "FELON",
                 "FELON2",
                 "JACKAL",
+                "KANJOSJ", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "ORACLE",
                 "ORACLE2",
+                "POSTLUDE", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "PREVION", // LS TUNERS (MPTUNER) DLC - Requires b2372
                 "SENTINEL",
                 "SENTINEL2",
@@ -450,6 +516,7 @@ namespace vMenuClient
                 "GAUNTLET3", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "GAUNTLET4", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "GAUNTLET5", // SUMMER SPECIAL (MPSUM) DLC - Requires b2060
+                "GREENWOOD", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "HERMES",
                 "HOTKNIFE",
                 "HUSTLER",
@@ -473,6 +540,7 @@ namespace vMenuClient
                 "RUINER",
                 "RUINER2",
                 "RUINER3",
+                "RUINER4", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "SABREGT",
                 "SABREGT2",
                 "SLAMVAN",
@@ -488,11 +556,13 @@ namespace vMenuClient
                 "TULIP",
                 "VAMOS",
                 "VIGERO",
+                "VIGERO2", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "VIRGO",
                 "VIRGO2",
                 "VIRGO3",
                 "VOODOO",
                 "VOODOO2",
+                "WEEVIL2", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "YOSEMITE",
                 "YOSEMITE2", // CASINO HEIST (MPHEIST3) DLC - Requires b2060
             };
@@ -568,6 +638,7 @@ namespace vMenuClient
                 "COMET7", // THE CONTRACT (MPSECURITY) DLC - Requires b2545
                 "COQUETTE",
                 "COQUETTE4", // SUMMER SPECIAL (MPSUM) DLC - Requires b2060
+                "CORSITA", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "CYPHER", // LS TUNERS (MPTUNER) DLC - Requires b2372
                 "DRAFTER", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "ELEGY",
@@ -603,6 +674,7 @@ namespace vMenuClient
                 "NINEF",
                 "NINEF2",
                 "OMNIS",
+                "OMNISEGT", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "PARAGON", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "PARAGON2", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "PARIAH",
@@ -623,7 +695,9 @@ namespace vMenuClient
                 "SCHLAGEN",
                 "SCHWARZER",
                 "SENTINEL3",
+                "SENTINEL4", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "SEVEN70",
+                "SM722", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699 
                 "SPECTER",
                 "SPECTER2",
                 "SUGOI", // CASINO HEIST (MPHEIST3) DLC - Requires b2060
@@ -632,6 +706,8 @@ namespace vMenuClient
                 "SULTAN3", // LS TUNERS (MPTUNER) DLC - Requires b2372
                 "SURANO",
                 "TAMPA2",
+                "TENF", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
+                "TENF2", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "TROPOS",
                 "VERLIERER2",
                 "VECTRE", // LS TUNERS (MPTUNER) DLC - Requires b2372
@@ -667,6 +743,7 @@ namespace vMenuClient
                 "ITALIGTB2",
                 "KRIEGER", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "LE7B",
+                "LM87", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "NERO",
                 "NERO2",
                 "OSIRIS",
@@ -685,6 +762,7 @@ namespace vMenuClient
                 "TEZERACT",
                 "THRAX", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "TIGON", // SUMMER SPECIAL (MPSUM) DLC - Requires b2060
+                "TORERO2", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "TURISMOR",
                 "TYRANT",
                 "TYRUS",
@@ -782,6 +860,7 @@ namespace vMenuClient
                 "CARACARA",
                 "CARACARA2", // CASINO AND RESORT (MPVINEWOOD) DLC - Requires b2060
                 "DLOADER",
+                "DRAUGUR", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "DUBSTA3",
                 "DUNE",
                 "DUNE2",
@@ -999,6 +1078,7 @@ namespace vMenuClient
                 "CARGOBOB2",
                 "CARGOBOB3",
                 "CARGOBOB4",
+                "CONADA", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
                 "FROGGER",
                 "FROGGER2",
                 "HAVOK",
@@ -1201,7 +1281,8 @@ namespace vMenuClient
             Military = 19,
             Commercial = 20,
             Trains = 21
-             */
+            OpenWheel = 22
+            */
 
             public static Dictionary<string, List<string>> VehicleClasses { get; } = new Dictionary<string, List<string>>()
             {

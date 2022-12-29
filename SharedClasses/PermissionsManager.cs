@@ -306,6 +306,9 @@ namespace vMenuShared
             WPHeavyRifle,
             WPFertilizerCan,
             WPStunGunMP,
+            // MPSUM2 DLC (v 2699)
+            WPPrecisionRifle,
+            WPTacticalRifle,
             #endregion
 
             // Weapon Loadouts Menu
