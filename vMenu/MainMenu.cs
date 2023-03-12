@@ -37,6 +37,7 @@ namespace vMenuClient
         public static VehicleSpawner VehicleSpawnerMenu { get; private set; }
         public static PlayerAppearance PlayerAppearanceMenu { get; private set; }
         public static MpPedCustomization MpPedCustomizationMenu { get; private set; }
+        public static PlayerTimeWeatherOptions PlayerTimeWeatherOptionsMenu { get; private set; }
         public static TeleportOptions TeleportOptionsMenu { get; private set; }
         public static TimeOptions TimeOptionsMenu { get; private set; }
         public static WeatherOptions WeatherOptionsMenu { get; private set; }
@@ -757,8 +758,17 @@ namespace vMenuClient
                 };
             }
 
-            // Add Voice Chat Menu.
-            if (IsAllowed(Permission.TOMenu))
+            {
+                PlayerTimeWeatherOptionsMenu = new PlayerTimeWeatherOptions();
+                Menu menu2 = PlayerTimeWeatherOptionsMenu.GetMenu();
+                MenuItem button2 = new MenuItem("Time & Weather Options", "Change all time & weather related options here.")
+                {
+                    Label = "→→→"
+                };
+                AddMenu(Menu, menu2, button2);
+            }
+
+            // Add Teleport Menu.
             {
                 TeleportOptionsMenu = new TeleportOptions();
                 Menu menu = TeleportOptionsMenu.GetMenu();
@@ -775,11 +785,11 @@ namespace vMenuClient
             {
                 VoiceChatSettingsMenu = new VoiceChat();
                 Menu menu = VoiceChatSettingsMenu.GetMenu();
-                MenuItem button = new MenuItem("Voice Chat Settings", "Change Voice Chat options here.")
+                /*MenuItem button = new MenuItem("Voice Chat Settings", "Change Voice Chat options here.")
                 {
                     Label = "→→→"
                 };
-                AddMenu(Menu, menu, button);
+                AddMenu(Menu, menu, button);*/
             }
 
             {

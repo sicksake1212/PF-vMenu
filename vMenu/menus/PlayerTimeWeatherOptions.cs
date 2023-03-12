@@ -21,10 +21,9 @@ namespace vMenuClient
         private Menu menu;
 
         public MenuCheckboxItem clientSidedEnabled;
-        public MenuCheckboxItem timeFrozen;
         public MenuListItem timeDataList;
         public static Dictionary<uint, MenuItem> weatherHashMenuIndex = new Dictionary<uint, MenuItem>();
-        public List<string> weatherListData = new List<string>() { "Clear", "Extra Sunny", "Clouds", "Overcast", "Rain", "Clearing", "Thunder", "Smog", "Foggy", "Xmas", "Snowlight", "Blizzard", "Snow", "Halloween", "Neutral" };
+        public List<string> weatherListData = new List<string>() { "Clear", "ExtraSunny", "Clouds", "Overcast", "Rain", "Clearing", "Thunder", "Smog", "Foggy", "Xmas", "Snowlight", "Blizzard", "Snow", "Halloween", "Neutral" };
         public MenuListItem weatherList;
 
         /// <summary>
@@ -36,9 +35,6 @@ namespace vMenuClient
 
             clientSidedEnabled = new MenuCheckboxItem("Client-Sided Time & Weather", "Enable or disable client-sided time and weather changes.", false);
             menu.AddMenuItem(clientSidedEnabled);
-
-            timeFrozen = new MenuCheckboxItem("Freeze Time", "Enable or disable time freezing.", false);
-            menu.AddMenuItem(timeFrozen);
 
             List<string> timeData = new List<string>();
             for (var i = 0; i < 24; i++)

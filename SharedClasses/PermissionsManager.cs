@@ -168,6 +168,15 @@ namespace vMenuShared
             PAAddonPeds,
             #endregion
 
+            // Teleport Options
+            #region teleport options
+            TPMenu,
+            TPTeleportToWp,
+            TPTeleportToCoord,
+            TPTeleportLocations,
+            TPTeleportSaveLocation,
+            #endregion
+
             // Time Options
             #region time options
             TOMenu,

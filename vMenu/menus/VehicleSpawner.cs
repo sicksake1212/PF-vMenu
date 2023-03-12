@@ -17,7 +17,9 @@ namespace vMenuClient
     {
         // Variables
         private Menu menu;
+        public static Dictionary<string, uint> Brand;
         public static Dictionary<string, uint> AddonVehicles;
+        public static Dictionary<string, uint> BrandVehicles;
 
         public bool SpawnInVehicle { get; private set; } = UserDefaults.VehicleSpawnerSpawnInside;
         public bool ReplaceVehicle { get; private set; } = UserDefaults.VehicleSpawnerReplacePrevious;
@@ -25,6 +27,7 @@ namespace vMenuClient
 
         private void CreateMenu()
         {
+
             #region initial setup.
             // Create the menu.
             menu = new Menu(Game.Player.Name, "Vehicle Spawner");
@@ -45,10 +48,15 @@ namespace vMenuClient
 
             #region addon cars menu
             // Vehicle Addons List
-            Menu addonCarsMenu = new Menu("Addon Vehicles", "Spawn An Addon Vehicle");
-            MenuItem addonCarsBtn = new MenuItem("Addon Vehicles", "A list of addon vehicles available on this server.") { Label = "→→→" };
+            Menu addonCarsMenu = new Menu("Addon Vehicles", "Choose how you'd like to find your car");
+            MenuItem addonCarsBtn = new MenuItem("~b~Addon Vehicles", "A list of addon vehicles available on this server.") { Label = "→→→" };
 
             menu.AddMenuItem(addonCarsBtn);
+
+            string jsonData = LoadResourceFile(GetCurrentResourceName(), "config/addons.json") ?? "{}";
+            var brandsjson = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(jsonData);
+
+            //var modelist = dict.OrderByDescending(pair => pair.Value).Take(5).ToDictionary(pair => pair.Key, pair => pair.Value);
 
             if (IsAllowed(Permission.VSAddon))
             {
@@ -61,6 +69,68 @@ namespace vMenuClient
                         Menu unavailableCars = new Menu("Addon Spawner", "Unavailable Vehicles");
                         MenuItem unavailableCarsBtn = new MenuItem("Unavailable Vehicles", "These addon vehicles are not currently being streamed (correctly) and are not able to be spawned.") { Label = "→→→" };
                         MenuController.AddSubmenu(addonCarsMenu, unavailableCars);
+
+                        Menu ManuMenu = new Menu("Manufacturer List", "Choose a manufacturer");
+                        MenuItem ManuBtn = new MenuItem("~y~Manufacturer Vehicles", $"Find the car you want by the list of manufacturers.") { Label = "→→→" };
+                        addonCarsMenu.AddMenuItem(ManuBtn);
+                        MenuController.AddSubmenu(addonCarsMenu, ManuMenu);
+                        MenuController.BindMenuItem(addonCarsMenu, ManuMenu, ManuBtn);
+
+                        foreach (KeyValuePair<string, uint> brands in Brand)
+                        {
+                            Menu brandMenu = new Menu(brands.Key, "Select a car you want to spawn");
+                            MenuItem brandBtn = new MenuItem(brands.Key, $"Open this to spawn an vehicle from {brands.Key}.") { Label = "→→→" };
+                            ManuMenu.AddMenuItem(brandBtn);
+                            //MenuController.AddSubmenu(categoryMenuManu, brandMenu);
+                            //MenuController.BindMenuItem(categoryMenuManu, brandMenu, brandBtn);
+
+                            BrandVehicles = new Dictionary<string, uint>();
+
+                            if (brandsjson.ContainsKey(brands.Key))
+                            {
+                                foreach (string element in brandsjson[brands.Key])
+                                {
+                                    if (!BrandVehicles.ContainsKey(element))
+                                        BrandVehicles.Add(element, (uint)GetHashKey(element));
+                                    else
+                                        Debug.WriteLine($"[vMenu] [Error] Your addons.json file contains 2 or more entries with the same brand name! ({element}) Please remove duplicate lines!");
+                                }
+                            }
+
+                            var brandlist = BrandVehicles.OrderBy(pair => GetLabelText(GetDisplayNameFromVehicleModel(pair.Value))).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+                            foreach (KeyValuePair<string, uint> model in brandlist)
+                            {
+                                string localizedNameBrandCar = GetLabelText(GetDisplayNameFromVehicleModel(model.Value));
+
+                                string modelname = localizedNameBrandCar != "NULL" ? localizedNameBrandCar : GetDisplayNameFromVehicleModel(model.Value);
+                                modelname = modelname != "CARNOTFOUND" ? modelname : model.Key;
+
+                                // Menu modelMenu = new Menu(model.Key, "Select a model");
+                                MenuItem modelBtn = new MenuItem(modelname, $"Spawn the {brands.Key} {modelname}.")
+                                {
+                                    Label = $"({model.Key})",
+                                    ItemData = model.Key // store the model name in the button data.
+                                };
+
+                                brandMenu.AddMenuItem(modelBtn);
+                                // MenuController.AddSubmenu(brandMenu, modelMenu);
+                                // MenuController.BindMenuItem(brandMenu, modelMenu, modelBtn);
+
+                            }
+                            if (brandMenu.Size > 0)
+                            {
+                                MenuController.AddSubmenu(ManuMenu, brandMenu);
+                                MenuController.BindMenuItem(ManuMenu, brandMenu, brandBtn);
+
+                                brandMenu.OnItemSelect += (sender, item, index) =>
+                                {
+                                    SpawnVehicle(item.ItemData.ToString(), SpawnInVehicle, ReplaceVehicle);
+                                };
+                            }
+                        }
+
+                        var modellist = AddonVehicles.OrderBy(pair => GetLabelText(GetDisplayNameFromVehicleModel(pair.Value))).ToDictionary(pair => pair.Key, pair => pair.Value);
 
                         for (var cat = 0; cat < 23; cat++)
                         {
@@ -77,9 +147,8 @@ namespace vMenuClient
                                 categoryBtn.Label = "";
                                 continue;
                             }
-
                             // Loop through all addon vehicles in this class.
-                            foreach (KeyValuePair<string, uint> veh in AddonVehicles.Where(v => GetVehicleClassFromName(v.Value) == cat))
+                            foreach (KeyValuePair<string, uint> veh in modellist.Where(v => GetVehicleClassFromName(v.Value) == cat))
                             {
                                 string localizedName = GetLabelText(GetDisplayNameFromVehicleModel(veh.Value));
 

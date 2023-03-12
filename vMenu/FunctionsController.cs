@@ -35,8 +35,8 @@ namespace vMenuClient
         private string crossingName = "";
         private string suffix = "";
         private List<int> waypointPlayerIdsToRemove = new List<int>();
-        private int voiceTimer = 0;
-        private int voiceCycle = 1;
+        //private int voiceTimer = 0;
+        //private int voiceCycle = 1;
         private const float voiceIndicatorWidth = 0.02f;
         private const float voiceIndicatorHeight = 0.041f;
         private const float voiceIndicatorMutedWidth = voiceIndicatorWidth + 0.0021f;
@@ -77,12 +77,19 @@ namespace vMenuClient
             {
                 Tick += WeatherOptions;
             }
+            
             if (IsAllowed(Permission.TOMenu) && GetSettingsBool(Setting.vmenu_enable_time_sync))
             {
                 Tick += TimeOptions;
             }
-            
-            Tick += TeleportOptions;
+
+            Tick += PlayerTimeOptions;
+            Tick += PlayerWeatherOptions;
+
+            if (IsAllowed(Permission.TPMenu))
+            {
+                Tick += TeleportOptions;
+            }
 
             // Configuration based
             if (!GetSettingsBool(Setting.vmenu_disable_spawning_as_default_character))
@@ -1252,8 +1259,8 @@ namespace vMenuClient
         {
             if (MainMenu.VoiceChatSettingsMenu.EnableVoicechat && IsAllowed(Permission.VCEnable))
             {
-                NetworkSetVoiceActive(true);
-                NetworkSetTalkerProximity(MainMenu.VoiceChatSettingsMenu.currentProximity);
+                //NetworkSetVoiceActive(true);
+                //NetworkSetTalkerProximity(MainMenu.VoiceChatSettingsMenu.currentProximity);
                 int channel = MainMenu.VoiceChatSettingsMenu.channels.IndexOf(MainMenu.VoiceChatSettingsMenu.currentChannel);
                 if (channel < 1)
                 {
@@ -1261,7 +1268,7 @@ namespace vMenuClient
                 }
                 else
                 {
-                    NetworkSetVoiceChannel(channel);
+                    //NetworkSetVoiceChannel(channel);
                 }
                 if (MainMenu.VoiceChatSettingsMenu.ShowCurrentSpeaker && IsAllowed(Permission.VCShowSpeaker))
                 {
@@ -1282,7 +1289,7 @@ namespace vMenuClient
                         }
                     }
                 }
-                if (MainMenu.VoiceChatSettingsMenu.ShowVoiceStatus)
+                /*if (MainMenu.VoiceChatSettingsMenu.ShowVoiceStatus)
                 {
 
                     if (GetGameTimer() - voiceTimer > 150)
@@ -1317,12 +1324,12 @@ namespace vMenuClient
                     {
                         SetStreamedTextureDictAsNoLongerNeeded("mpleaderboard");
                     }
-                }
+                }*/
             }
             else
             {
-                NetworkSetVoiceActive(false);
-                NetworkClearVoiceChannel();
+                //NetworkSetVoiceActive(false);
+                //NetworkClearVoiceChannel();
             }
         }
         #endregion
@@ -2273,12 +2280,12 @@ namespace vMenuClient
                                 }
                                 else
                                 {
-                                    gamerTags[p] = CreateMpGamerTag(p.Character.Handle, p.Name + $" [{p.ServerId}]", false, false, "", 0);
+                                    gamerTags[p] = CreateMpGamerTag(p.Character.Handle, $" #{p.ServerId} | " + p.Name, false, false, "", 0);
                                 }
                             }
                             else if (closeEnough)
                             {
-                                gamerTags.Add(p, CreateMpGamerTag(p.Character.Handle, p.Name + $" [{p.ServerId}]", false, false, "", 0));
+                                gamerTags.Add(p, CreateMpGamerTag(p.Character.Handle, $" #{p.ServerId} | " + p.Name, false, false, "", 0));
                             }
                             if (closeEnough && gamerTags.ContainsKey(p))
                             {
@@ -3145,12 +3152,38 @@ namespace vMenuClient
         }
         #endregion
 
+        // Client Time and Weather
+        #region Time & Weather Options
+        public async Task PlayerWeatherOptions()
+        {
+            await Delay(100);
+            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
+            {
+                ClearOverrideWeather();
+                ClearWeatherTypePersist();
+                SetWeatherTypeOverTime(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection(), 0.0f);
+                SetWeatherTypePersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+                SetWeatherTypeNow(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+                SetWeatherTypeNowPersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
+            }
+        }
+
+        public async Task PlayerTimeOptions()
+        {
+            await Delay(100);
+            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
+            {
+                NetworkOverrideClockTime(MainMenu.PlayerTimeWeatherOptionsMenu.timeDataList.ListIndex, 0, 0);
+            }
+        }
+        #endregion
+
         public async Task TeleportOptions()
         {
             await Delay(100);
             if (MainMenu.MiscSettingsMenu.KbTpToWaypoint)
             {
-                if (IsAllowed(Permission.MSTeleportToWp))
+                if (IsAllowed(Permission.TPTeleportToWp))
                 {
                     if (Game.IsControlJustReleased(0, (Control)MainMenu.MiscSettingsMenu.KbTpToWaypointKey)
                         && Fading.IsFadedIn
