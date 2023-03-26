@@ -1,5 +1,28 @@
-# Project Fairness vMenu
-The vMenu for Project Fairness and other affiliated server, with PFSync. All actions are subject to change.
+# PF-vMenu
+The vMenu for Project Fairness and other affiliated servers. All actions are subject to change.
+
+# What's New
+- Chameleon Color by Wildbrick142 - [Download Chameleon Colors here](https://cdn.discordapp.com/attachments/1055750916080422922/1089373135024955494/pzn_chameleoncolor.7z), [Source](https://www.gta5-mods.com/misc/chameleon-paint-add-on)
+- Content Updated up to v2802
+- Mosh_Notify embedded Support for vMenu's NoClip - [Download Mosh_Notify here](https://forum.cfx.re/t/release-free-mosh-notify-fivem-custom-notifications-with-loadbar/2614951)
+- Los Santos Tuners goodies such as Vehicle Stance and Drift Tires (it's useless since we have vStancer and Handling Editor, but hey, it works)
+- Moved Teleport Options to the front (Now, you no longer have to go to Misc Settings to teleport to your favorite place!)
+- (Untested) PMA-Voice Support
+- (WIP) Local Time & Weather Options
+- (WIP) Car Brands on Addon Vehicles menu
+
+# Description
+The original vMenu was lacking on options and new content. I made this version as a way for people to still get the latest updates, while of course, adding new things so it feels more like the vMenu on other servers (such as RSM, Impulse99, etc).
+
+# Credits
+- Lincoln HUX
+- Starman0620
+- 1Mosheba
+- AvarianKnight
+- Wildbrick142
+- MichaelCoding25
+- AlexR32
+- Freedy69
 
 # vMenu
 vMenu is server sided menu for FiveM servers, including full\* permission support.
