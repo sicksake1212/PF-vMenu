@@ -508,6 +508,7 @@ namespace vMenuClient
                 "DUKES2",
                 "DUKES3", // SUMMER SPECIAL (MPSUM) DLC - Requires b2060
                 "ELLIE",
+                "EUDORA", // LOS SANTOS DRUG WARS (mpchristmas3) DLC - Requires b2802
                 "FACTION",
                 "FACTION2",
                 "FACTION3",
@@ -554,6 +555,7 @@ namespace vMenuClient
                 "TAMPA",
                 "TAMPA3",
                 "TULIP",
+                "TULIP2", // LOS SANTOS DRUG WARS (mpchristmas3) DLC - Requires b2802
                 "VAMOS",
                 "VIGERO",
                 "VIGERO2", // CRIMINAL ENTERPRISES (MPSUM2) DLC - Requires b2699
@@ -644,6 +646,7 @@ namespace vMenuClient
                 "ELEGY",
                 "ELEGY2",
                 "EUROS", // LS TUNERS (MPTUNER) DLC - Requires b2372
+                "EVERON2", // LOS SANTOS DRUG WARS (mpchristmas3) DLC - Requires b2802
                 "FELTZER2",
                 "FLASHGT",
                 "FUROREGT",
