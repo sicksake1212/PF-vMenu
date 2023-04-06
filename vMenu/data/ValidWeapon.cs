@@ -236,7 +236,6 @@ namespace vMenuClient
 
         public static readonly Dictionary<string, string> weaponNames = new Dictionary<string, string>()
         {
-            { "weapon_acidpackage", GetLabelText("0x785B98D3") },
             { "weapon_advancedrifle", GetLabelText("WT_RIFLE_ADV") },
             { "weapon_appistol", GetLabelText("WT_PIST_AP") },
             { "weapon_assaultrifle", GetLabelText("WT_RIFLE_ASL") },
@@ -252,7 +251,6 @@ namespace vMenuClient
             { "weapon_bullpuprifle_mk2", GetLabelText("WT_BULLRIFLE2") },
             { "weapon_bullpupshotgun", GetLabelText("WT_SG_BLP") },
             { "weapon_bzgas", GetLabelText("WT_BZGAS") },
-            { "weapon_candycane", GetLabelText("0x415C5169") },
             { "weapon_carbinerifle", GetLabelText("WT_RIFLE_CBN") },
             { "weapon_carbinerifle_mk2", GetLabelText("WT_RIFLE_CBN2") },
             { "weapon_combatmg", GetLabelText("WT_MG_CBT") },
@@ -300,13 +298,11 @@ namespace vMenuClient
             { "weapon_pistol", GetLabelText("WT_PIST") },
             { "weapon_pistol50", GetLabelText("WT_PIST_50") },
             { "weapon_pistol_mk2", GetLabelText("WT_PIST2") },
-            { "weapon_pistolxm3", GetLabelText("0x58BB97CD") },
             { "weapon_poolcue", GetLabelText("WT_POOLCUE") },
             { "weapon_proxmine", GetLabelText("WT_PRXMINE") },
             { "weapon_pumpshotgun", GetLabelText("WT_SG_PMP") },
             { "weapon_pumpshotgun_mk2", GetLabelText("WT_SG_PMP2") },
             { "weapon_railgun", GetLabelText("WT_RAILGUN") },
-            { "weapon_railgunxm3", GetLabelText("0x12A5FB79") },
             { "weapon_revolver", GetLabelText("WT_REVOLVER") },
             { "weapon_revolver_mk2", GetLabelText("WT_REVOLVER2") },
             { "weapon_rpg", GetLabelText("WT_RPG") },
@@ -358,7 +354,6 @@ namespace vMenuClient
         #region weapon permissions
         public static readonly Dictionary<string, Permission> weaponPermissions = new Dictionary<string, Permission>()
         {
-            ["weapon_acidpackage"] = Permission.WPAcidPackage,
             ["weapon_advancedrifle"] = Permission.WPAdvancedRifle,
             ["weapon_appistol"] = Permission.WPAPPistol,
             ["weapon_assaultrifle"] = Permission.WPAssaultRifle,
@@ -374,7 +369,6 @@ namespace vMenuClient
             ["weapon_bullpuprifle_mk2"] = Permission.WPBullpupRifleMk2,
             ["weapon_bullpupshotgun"] = Permission.WPBullpupShotgun,
             ["weapon_bzgas"] = Permission.WPBZGas,
-            ["weapon_candycane"] = Permission.WPCandyCane,
             ["weapon_carbinerifle"] = Permission.WPCarbineRifle,
             ["weapon_carbinerifle_mk2"] = Permission.WPCarbineRifleMk2,
             ["weapon_combatmg"] = Permission.WPCombatMG,
@@ -422,13 +416,11 @@ namespace vMenuClient
             ["weapon_pistol"] = Permission.WPPistol,
             ["weapon_pistol50"] = Permission.WPPistol50,
             ["weapon_pistol_mk2"] = Permission.WPPistolMk2,
-            ["weapon_pistolxm3"] = Permission.WPPistolXM3,
             ["weapon_poolcue"] = Permission.WPPoolCue,
             ["weapon_proxmine"] = Permission.WPProximityMine,
             ["weapon_pumpshotgun"] = Permission.WPPumpShotgun,
             ["weapon_pumpshotgun_mk2"] = Permission.WPPumpShotgunMk2,
             ["weapon_railgun"] = Permission.WPRailgun,
-            ["weapon_railgunxm3"] = Permission.WPRailgunXM3,
             ["weapon_revolver"] = Permission.WPRevolver,
             ["weapon_revolver_mk2"] = Permission.WPRevolverMk2,
             ["weapon_rpg"] = Permission.WPRPG,
@@ -469,6 +461,11 @@ namespace vMenuClient
             //MPSUM2 DLC (V 2699)
             ["weapon_tacticalrifle"] = Permission.WPTacticalRifle,
             ["weapon_precisionrifle"] = Permission.WPPrecisionRifle,
+            //MPCHRISTMAS3 DLC (V 2802)
+            ["weapon_acidpackage"] = Permission.WPAcidPackage,
+            ["weapon_candycane"] = Permission.WPCandyCane,
+            ["weapon_pistolxm3"] = Permission.WPPistolXM3,
+            ["weapon_railgunxm3"] = Permission.WPRailgunXM3,
         };
         #endregion
 
