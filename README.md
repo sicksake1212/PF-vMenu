@@ -23,6 +23,9 @@ The original vMenu was lacking on options and new content. I made this version a
 - MichaelCoding25
 - AlexR32
 - Freedy69
+- AvaNOX
+- TayMcKenzieNZ
+- Vespura
 
 # vMenu
 vMenu is server sided menu for FiveM servers, including full\* permission support.
