@@ -2,7 +2,7 @@
 The vMenu for Project Fairness and other affiliated servers. All actions are subject to change.
 
 # What's New
-- Chameleon Color by Wildbrick142 - [Download Chameleon Colors here](https://cdn.discordapp.com/attachments/1055750916080422922/1089373135024955494/pzn_chameleoncolor.7z), [Source](https://www.gta5-mods.com/misc/chameleon-paint-add-on)
+- Chameleon Color by Wildbrick142 - [Download Chameleon Colors here](https://cdn.discordapp.com/attachments/1099903046701559828/1102708906234478712/pzn_chameleoncolor.7z), [Source](https://www.gta5-mods.com/misc/chameleon-paint-add-on)
 - Content Updated up to v2802
 - Mosh_Notify embedded Support for vMenu's NoClip - [Download Mosh_Notify here](https://forum.cfx.re/t/release-free-mosh-notify-fivem-custom-notifications-with-loadbar/2614951)
 - Los Santos Tuners goodies such as Vehicle Stance and Drift Tires (it's useless since we have vStancer and Handling Editor, but hey, it works)
