@@ -48,7 +48,7 @@ Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for
 --------
 
 ## Compiling of the Project Fairness vMenu
-Compiling the vMenu is quite easy and straight-forward, if you have Visual Studio. By grabbing the NuGet packages for CitizenFX.Core.Client and CitizenFX.Core.Server as well as the NuGet package for MenuAPI, all you have to do is compile and that's it. All support of the Projectr Fairness vMenu will never be receiving troubleshoot support by Vespura, so do not bother asking for support to him. This is a fork of his project. Please pull a Issue request if you have any problems with this vMenu.
+Compiling the vMenu is quite easy and straight-forward, if you have Visual Studio. By grabbing the NuGet packages for CitizenFX.Core.Client and CitizenFX.Core.Server as well as the NuGet package for MenuAPI, all you have to do is compile and that's it. All support of the Project Fairness vMenu will never be receiving troubleshoot support by Vespura, so do not bother asking for support to him. This is a fork of his project. Please pull a Issue request if you have any problems with this vMenu.
 
 --------
 
