@@ -46,7 +46,9 @@ The intention of this vMenu is to create the ultimate vMenu from Vespura's resou
 - [PMA-Voice](https://github.com/AvarianKnight/pma-voice/releases)
 
 ## Download
-Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for the original version.
+Download this vMenu [here](https://github.com/ProjectFairnessLabs/PF-vMenu/releases)
+
+Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for the original version, if you have issues.
 
 --------
 
