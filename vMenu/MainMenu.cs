@@ -45,6 +45,7 @@ namespace vMenuClient
         public static WeaponOptions WeaponOptionsMenu { get; private set; }
         public static WeaponLoadouts WeaponLoadoutsMenu { get; private set; }
         public static Recording RecordingMenu { get; private set; }
+        public static EnhancedCamera EnhancedCameraMenu { get; private set; }
         public static MiscSettings MiscSettingsMenu { get; private set; }
         public static VoiceChat VoiceChatSettingsMenu { get; private set; }
         public static About AboutMenu { get; private set; }
@@ -797,6 +798,17 @@ namespace vMenuClient
                 RecordingMenu = new Recording();
                 Menu menu = RecordingMenu.GetMenu();
                 MenuItem button = new MenuItem("Recording Options", "In-game recording options.")
+                {
+                    Label = "→→→"
+                };
+                AddMenu(Menu, menu, button);
+            }
+
+            // Add Enhanced Cam menu.
+            {
+                EnhancedCameraMenu = new EnhancedCamera();
+                Menu menu = EnhancedCameraMenu.GetMenu();
+                MenuItem button = new MenuItem("Enhanced Camera", "Lead, chase and drone camera options, embedded into vMenu.")
                 {
                     Label = "→→→"
                 };
