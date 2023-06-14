@@ -1,10 +1,10 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-labels: 
+labels: new feature
 
 ---
 
-Please post feature requests in [this](https://github.com/TomGrobbe/vMenu/issues/115) issue instead of creating a new issue for it.
+Please post feature requests in [this](https://github.com/ProjectFairnessLabs/PF-vMenu/issues), and add the label of New Feature.
 
-Any requests _not_ posted in that linked issue (#115) may result in you getting banned from this repository.
+I'll make sure to read them all!
