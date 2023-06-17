@@ -211,7 +211,6 @@ namespace vMenuShared
 
             //Weapons Permissions
             #region weapon specific permissions
-            WPAcidPackage,
             WPAPPistol,
             WPAdvancedRifle,
             WPAssaultRifle,
@@ -226,7 +225,6 @@ namespace vMenuShared
             WPBullpupRifle,
             WPBullpupRifleMk2,
             WPBullpupShotgun,
-            WPCandyCane,
             WPCarbineRifle,
             WPCarbineRifleMk2,
             WPCombatMG,
@@ -277,14 +275,12 @@ namespace vMenuShared
             WPPistol,
             WPPistol50,
             WPPistolMk2,
-            WPPistolXM3,
             WPPoolCue,
             WPProximityMine,
             WPPumpShotgun,
             WPPumpShotgunMk2,
             WPRPG,
             WPRailgun,
-            WPRailgunXM3,
             WPRevolver,
             WPRevolverMk2,
             WPSMG,
@@ -322,6 +318,13 @@ namespace vMenuShared
             // MPSUM2 DLC (v 2699)
             WPPrecisionRifle,
             WPTacticalRifle,
+            // MPCHRISTMAS3 DLC (v 2802)
+            WPAcidPackage,
+            WPCandyCane,
+            WPPistolXM3,
+            WPRailgunXM3,
+            // MP2023_01 DLC (V 2944)
+            WPTecPistol,
             #endregion
 
             // Weapon Loadouts Menu

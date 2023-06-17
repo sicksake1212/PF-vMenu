@@ -232,6 +232,8 @@ namespace vMenuClient
             { "weapon_candycane", GetLabelText("WTD_CANDYCANE") },
             { "weapon_pistolxm3", GetLabelText("WTD_PISTOLXM3") },
             { "weapon_railgunxm3", GetLabelText("WTD_RAILGUN") },
+            //MP2023_01 DLC (V 2944)
+            { "weapon_tecpistol", GetLabelText("WTD_TECPISTOL") },
         };
 
         public static readonly Dictionary<string, string> weaponNames = new Dictionary<string, string>()
@@ -348,6 +350,8 @@ namespace vMenuClient
             { "weapon_candycane", GetLabelText("WT_CANDYCANE") },
             { "weapon_pistolxm3", GetLabelText("WT_PISTOLXM3") },
             { "weapon_railgunxm3", GetLabelText("WT_RAILGUN") },
+            //MP2023_01 DLC (V 2944)
+            { "weapon_tecpistol", GetLabelText("WT_TECPISTOL") },
         };
         #endregion
 
@@ -466,6 +470,8 @@ namespace vMenuClient
             ["weapon_candycane"] = Permission.WPCandyCane,
             ["weapon_pistolxm3"] = Permission.WPPistolXM3,
             ["weapon_railgunxm3"] = Permission.WPRailgunXM3,
+            //MP2023_01 DLC (V 2944)
+            ["weapon_tecpistol"] = Permission.WPTecPistol,
         };
         #endregion
 
@@ -851,6 +857,9 @@ namespace vMenuClient
             ["COMPONENT_TACTICALRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
             ["COMPONENT_PRECISIONRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
             ["COMPONENT_AT_AR_FLSH_REH"] = GetLabelText("WCT_FLASH"),
+            //MP2023_01 DLC (V 2944)
+            ["COMPONENT_TECPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
+            ["COMPONENT_TECPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
         };
         #endregion
 
