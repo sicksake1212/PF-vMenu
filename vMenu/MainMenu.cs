@@ -770,6 +770,7 @@ namespace vMenuClient
             }
 
             // Add Teleport Menu.
+            if (IsAllowed(Permission.TPMenu))
             {
                 TeleportOptionsMenu = new TeleportOptions();
                 Menu menu = TeleportOptionsMenu.GetMenu();

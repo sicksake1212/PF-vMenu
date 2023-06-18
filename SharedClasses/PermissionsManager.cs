@@ -171,6 +171,7 @@ namespace vMenuShared
             // Teleport Options
             #region teleport options
             TPMenu,
+            TPAll,
             TPTeleportToWp,
             TPTeleportToCoord,
             TPTeleportLocations,
@@ -622,6 +623,9 @@ namespace vMenuShared
                     break;
                 case "VC":
                     prefix += "VoiceChat";
+                    break;
+                case "TP":
+                    prefix += "TeleportOptions";
                     break;
                 default:
                     return prefix + name;

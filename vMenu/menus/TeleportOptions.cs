@@ -40,7 +40,7 @@ namespace vMenuClient
             MenuItem backBtn = new MenuItem("Back");
 
             // Teleportation options
-            if (IsAllowed(Permission.MSTeleportToWp) || IsAllowed(Permission.MSTeleportLocations) || IsAllowed(Permission.MSTeleportToCoord))
+            if (IsAllowed(Permission.TPTeleportToWp) || IsAllowed(Permission.TPTeleportLocations) || IsAllowed(Permission.TPTeleportToCoord))
             {
                 MenuItem tptowp = new MenuItem("Teleport To Waypoint", "Teleport to the waypoint on your map.");
                 MenuItem tpToCoord = new MenuItem("Teleport To Coords", "Enter the X, Y, Z coordinates and you will be teleported to that location.");
@@ -122,15 +122,15 @@ namespace vMenuClient
                     }
                 };
 
-                if (IsAllowed(Permission.MSTeleportToWp))
+                if (IsAllowed(Permission.TPTeleportToWp))
                 {
                     menu.AddMenuItem(tptowp);
                 }
-                if (IsAllowed(Permission.MSTeleportToCoord))
+                if (IsAllowed(Permission.TPTeleportToCoord))
                 {
                     menu.AddMenuItem(tpToCoord);
                 }
-                if (IsAllowed(Permission.MSTeleportLocations))
+                if (IsAllowed(Permission.TPTeleportLocations))
                 {
                     menu.AddMenuItem(teleportMenuBtn);
 
@@ -165,7 +165,7 @@ namespace vMenuClient
                         }
                     };
 
-                    if (IsAllowed(Permission.MSTeleportSaveLocation))
+                    if (IsAllowed(Permission.TPTeleportSaveLocation))
                     {
                         menu.AddMenuItem(saveLocationBtn);
                     };
