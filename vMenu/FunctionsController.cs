@@ -39,8 +39,8 @@ namespace vMenuClient
         private string crossingName = "";
         private string suffix = "";
         private List<int> waypointPlayerIdsToRemove = new List<int>();
-        //private int voiceTimer = 0;
-        //private int voiceCycle = 1;
+        private int voiceTimer = 0;
+        private int voiceCycle = 1;
         private const float voiceIndicatorWidth = 0.02f;
         private const float voiceIndicatorHeight = 0.041f;
         private const float voiceIndicatorMutedWidth = voiceIndicatorWidth + 0.0021f;
@@ -1263,8 +1263,8 @@ namespace vMenuClient
         {
             if (MainMenu.VoiceChatSettingsMenu.EnableVoicechat && IsAllowed(Permission.VCEnable))
             {
-                //NetworkSetVoiceActive(true);
-                //NetworkSetTalkerProximity(MainMenu.VoiceChatSettingsMenu.currentProximity);
+                NetworkSetVoiceActive(true);
+                NetworkSetTalkerProximity(MainMenu.VoiceChatSettingsMenu.currentProximity);
                 int channel = MainMenu.VoiceChatSettingsMenu.channels.IndexOf(MainMenu.VoiceChatSettingsMenu.currentChannel);
                 if (channel < 1)
                 {
@@ -1272,7 +1272,7 @@ namespace vMenuClient
                 }
                 else
                 {
-                    //NetworkSetVoiceChannel(channel);
+                    NetworkSetVoiceChannel(channel);
                 }
                 if (MainMenu.VoiceChatSettingsMenu.ShowCurrentSpeaker && IsAllowed(Permission.VCShowSpeaker))
                 {
@@ -1293,7 +1293,7 @@ namespace vMenuClient
                         }
                     }
                 }
-                /*if (MainMenu.VoiceChatSettingsMenu.ShowVoiceStatus)
+                if (MainMenu.VoiceChatSettingsMenu.ShowVoiceStatus)
                 {
 
                     if (GetGameTimer() - voiceTimer > 150)
@@ -1328,12 +1328,12 @@ namespace vMenuClient
                     {
                         SetStreamedTextureDictAsNoLongerNeeded("mpleaderboard");
                     }
-                }*/
+                }
             }
             else
             {
-                //NetworkSetVoiceActive(false);
-                //NetworkClearVoiceChannel();
+                NetworkSetVoiceActive(false);
+                NetworkClearVoiceChannel();
             }
         }
         #endregion
