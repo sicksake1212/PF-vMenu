@@ -17,14 +17,14 @@ namespace vMenuClient
 
         private List<string> speeds = new List<string>()
         {
-            "Very Slow",
-            "Slow",
-            "Normal",
-            "Fast",
-            "Very Fast",
-            "Extremely Fast",
-            "Extremely Fast v2.0",
-            "Max Speed"
+            "Very Slow (1/8)",
+            "Slow (2/8)",
+            "Normal (3/8)",
+            "Fast (4/8)",
+            "Very Fast (5/8)",
+            "Extremely Fast (6/8)",
+            "Extremely Fast v2.0 (7/8)",
+            "Max Speed (8/8)"
         };
 
         public NoClip()
@@ -46,7 +46,10 @@ namespace vMenuClient
         {
             if (NoclipActive)
             {
-                TriggerEvent("mosh_notify:notify", "SUCCESS", "<span class=\"text-white\">You are now in NoClip! Press F2 to turn off NoClip.</span>", "success", "success", 5000);
+                if (vMenuShared.ConfigManager.GetSettingsBool(vMenuShared.ConfigManager.Setting.pfvmenu_moshnotify_setting))
+                {
+                    TriggerEvent("mosh_notify:notify", "SUCCESS", "<span class=\"text-white\">You are now in NoClip! Press F2 to turn off NoClip.</span>", "success", "success", 5000);
+                }
                 Scale = RequestScaleformMovie("INSTRUCTIONAL_BUTTONS");
                 while (!HasScaleformMovieLoaded(Scale))
                 {
@@ -145,7 +148,10 @@ namespace vMenuClient
                         {
                             MovingSpeed = 0;
                         }
-                        TriggerEvent("mosh_notify:notify", "SUCCESS", $"<span class=\"text-white\">Your NoClip speed is: {speeds[MovingSpeed]}.</span>", "success", "success", 3000);
+                        if (vMenuShared.ConfigManager.GetSettingsBool(vMenuShared.ConfigManager.Setting.pfvmenu_moshnotify_setting))
+                        {
+                            TriggerEvent("mosh_notify:notify", "SUCCESS", $"<span class=\"text-white\">Your NoClip speed is: {speeds[MovingSpeed]}.</span>", "success", "success", 3000);
+                        }
                     }
 
                     if (Game.IsDisabledControlPressed(0, Control.MoveUpOnly))
