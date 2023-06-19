@@ -41,7 +41,7 @@ The intention of this vMenu is to create the ultimate vMenu from Vespura's resou
 
 ## Requirements
 - [Server must be v2372 or above, click here on how to enforce serverbuild](https://docs.fivem.net/docs/server-manual/server-commands/#sv_enforcegamebuild-build)
-- [mosh_notify](https://forum.cfx.re/t/release-free-mosh-notify-fivem-custom-notifications-with-loadbar/2614951)
+- [mosh_notify](https://forum.cfx.re/t/release-free-mosh-notify-fivem-custom-notifications-with-loadbar/2614951) (Optional download)
 - [Chameleon Colors](https://cdn.discordapp.com/attachments/1099903046701559828/1102708906234478712/pzn_chameleoncolor.7z)
 - [PMA-Voice](https://github.com/AvarianKnight/pma-voice/releases)
 
