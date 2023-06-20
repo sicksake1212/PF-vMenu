@@ -28,7 +28,7 @@ namespace vMenuClient
         public bool JoinQuitNotifications { get; private set; } = false;
         public bool LockCameraX { get; private set; } = false;
         public bool LockCameraY { get; private set; } = false;
-        public bool ShowLocationBlips { get; private set; } = true;
+        public bool ShowLocationBlips { get; private set; } = UserDefaults.MiscLocationBlips;
         public bool ShowPlayerBlips { get; private set; } = true;
         public bool MiscShowOverheadNames { get; private set; } = true;
         public bool ShowVehicleModelDimensions { get; private set; } = false;
