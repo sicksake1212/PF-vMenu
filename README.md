@@ -74,6 +74,10 @@ We are glad at accepting Pull Requests to add more features overtime to our vMen
 
 --------
 
+## Support
+Please join [our Discord server](https://discord.gg/D7cVc8TzPN) if you want support in regards to this menu.
+--------
+
 ## Permissions 
 Click [here](https://docs.vespura.com/vmenu/permissions-ref) for permissions information.
 
