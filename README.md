@@ -35,6 +35,9 @@ vMenu is server sided menu for FiveM servers, including full\* permission suppor
 
 The intention of this vMenu is to create the ultimate vMenu from Vespura's resources, while also achieving the same features seen on other servers such as Rockstar Mischief and Impulse99, which have a modified vMenu, while adding and integrating new features inside of said vMenu.
 
+# Discord
+Please join [our Discord server](https://discord.gg/D7cVc8TzPN) if you want support in regards to this menu.
+
 --------
 
 # Download & Installation & Permissions
@@ -52,13 +55,13 @@ Download Vespura's vMenu [here](https://github.com/TomGrobbe/vMenu/releases) for
 
 --------
 
-## Compiling of the Project Fairness vMenu
+## Compiling of the PF-vMenu
 Compiling the vMenu is quite easy and straight-forward, if you have Visual Studio. By grabbing the NuGet packages for CitizenFX.Core.Client and CitizenFX.Core.Server as well as the NuGet package for MenuAPI, all you have to do is compile and that's it. All support of the Project Fairness vMenu will never be receiving troubleshoot support by Vespura, so do not bother asking for support to him. This is a fork of his project. Please pull a Issue request if you have any problems with this vMenu.
 
 --------
 
 ## Installation
-Please follow the instructions over at the [vMenu docs](https://docs.vespura.com/vmenu/installation)
+Please follow the instructions over at the [PF-vMenu wiki]([https://docs.vespura.com/vmenu/installation](https://github.com/ProjectFairnessLabs/PF-vMenu/wiki/Installation)!
 
 --------
 
@@ -72,10 +75,6 @@ If you like Vespura's work, please consider supporting him on [**Patreon**](http
 ## Pull Requests
 We are glad at accepting Pull Requests to add more features overtime to our vMenu, meaning we can add more features that can be similar to other vMenu clients.
 
---------
-
-## Support
-Please join [our Discord server](https://discord.gg/D7cVc8TzPN) if you want support in regards to this menu.
 --------
 
 ## Permissions 
