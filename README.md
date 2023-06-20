@@ -63,6 +63,8 @@ Please follow the instructions over at the [vMenu docs](https://docs.vespura.com
 --------
 
 ## Support
+If you really enjoy this menu, please consider supporting me on [Ko-Fi](https://ko-fi.com/projectfairnesslabs)! I'm very glad I can bring something to the table after two years of working on this menu exclusively for my server but wanted to share it with the whole world. :)
+
 If you like Vespura's work, please consider supporting him on [**Patreon**](https://www.patreon.com/vespura). He's put a _lot_ of my time and hard work into his vMenu and other projects.
 
 --------
