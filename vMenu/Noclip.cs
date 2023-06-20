@@ -17,14 +17,14 @@ namespace vMenuClient
 
         private List<string> speeds = new List<string>()
         {
-            "Very Slow (1/8)",
-            "Slow (2/8)",
-            "Normal (3/8)",
-            "Fast (4/8)",
-            "Very Fast (5/8)",
-            "Extremely Fast (6/8)",
-            "Extremely Fast v2.0 (7/8)",
-            "Max Speed (8/8)"
+            "Very Slow | 1/8",
+            "Slow | 2/8",
+            "Normal | 3/8",
+            "Fast | 4/8",
+            "Very Fast | 5/8",
+            "Extremely Fast | 6/8",
+            "Extremely Fast v2.0 | 7/8",
+            "Max Speed | 8/8"
         };
 
         public NoClip()
