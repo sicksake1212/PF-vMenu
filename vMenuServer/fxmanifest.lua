@@ -11,6 +11,12 @@ author 'ribbitpoison/Tom Grobbe'
 url 'https://github.com/ProjectFairnessLabs/PF-vMenu/'
 ui_page 'storage.html'
 
+-- The default language of the menu
+default_language "English"
+
+-- Add the names of the jsons added to config/languages here in the current format
+languages 'English, Spanish'
+
 -- Adds additional logging, useful when debugging issues.
 client_debug_mode 'false'
 server_debug_mode 'false'
