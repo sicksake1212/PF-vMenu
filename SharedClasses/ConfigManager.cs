@@ -240,6 +240,7 @@ namespace vMenuShared
             }
         }
         #endregion
+
         #region Get all the languages from the appropriate json file
 
         /// <summary>
@@ -266,14 +267,14 @@ namespace vMenuShared
                         else
                         {
                             #if CLIENT
-                            vMenuClient.Notify.Error($"Unable to load {lang}.json.");
+                            vMenuClient.Notify.Error($"Unable to load {lang}.json");
                             #endif
                         }
                     }
                     catch
                     {
                         #if CLIENT
-                        vMenuClient.Notify.Error($"Unable to load {lang}.json.");
+                        vMenuClient.Notify.Error($"Unable to load {lang}.json");
                         #endif
                     }
                 }
