@@ -120,6 +120,16 @@ namespace vMenuClient
                 SetEntityInvincible(noclipEntity, true);
 
                 Vector3 newPos;
+                Game.DisableControlThisFrame(0, Control.AccurateAim);
+                Game.DisableControlThisFrame(0, Control.Attack);
+                Game.DisableControlThisFrame(0, Control.Aim);
+                Game.DisableControlThisFrame(0, Control.Cover);
+                Game.DisableControlThisFrame(0, Control.Detonate);
+                Game.DisableControlThisFrame(0, Control.MeleeAttack1);
+                Game.DisableControlThisFrame(0, Control.MeleeAttack2);
+                Game.DisableControlThisFrame(0, Control.MeleeAttackAlternate);
+                Game.DisableControlThisFrame(0, Control.MeleeAttackLight);
+                Game.DisableControlThisFrame(0, Control.MeleeAttackHeavy);
                 Game.DisableControlThisFrame(0, Control.MoveUpOnly);
                 Game.DisableControlThisFrame(0, Control.MoveUp);
                 Game.DisableControlThisFrame(0, Control.MoveUpDown);
