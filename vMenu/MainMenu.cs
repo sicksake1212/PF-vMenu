@@ -827,6 +827,10 @@ namespace vMenuClient
                 AddMenu(Menu, menu, button);
             }
 
+            // Add a Spacer Here
+            MenuItem spacer = GetSpacerMenuItem("~y~↓ Miscellaneous ↓");
+            Menu.AddMenuItem(spacer);
+
             // Add misc settings menu.
             {
                 MiscSettingsMenu = new MiscSettings();
