@@ -831,6 +831,18 @@ namespace vMenuClient
             MenuItem spacer = GetSpacerMenuItem("~y~↓ Miscellaneous ↓");
             Menu.AddMenuItem(spacer);
 
+            // Add enhanced camera menu.
+            if (IsAllowed(Permission.ECMenu))
+            {
+                MiscSettingsMenu = new MiscSettings();
+                Menu menu = MiscSettingsMenu.GetMenu();
+                MenuItem button = new MenuItem("Enhanced Camera", "Opens the enhanced camera menu.")
+                {
+                    Label = "→→→"
+                };
+                AddMenu(Menu, menu, button);
+            }
+
             // Add misc settings menu.
             {
                 MiscSettingsMenu = new MiscSettings();

@@ -337,6 +337,12 @@ namespace vMenuShared
             WLEquipOnRespawn,
             #endregion
 
+            // Enhanced Camera Menu
+            #region enhanced camera
+            ECMenu,
+            ECAll,
+            #endregion
+
             // Misc Settings
             #region misc settings
             MSAll,
