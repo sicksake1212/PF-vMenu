@@ -28,8 +28,6 @@ namespace vMenuClient
         private Dictionary<Menu, ValidWeapon> weaponInfo;
         private Dictionary<MenuItem, string> weaponComponents;
 
-        private static readonly LanguageManager Lm = new LanguageManager();
-
         #region Create Menu
         /// <summary>
         /// Creates the menu.
@@ -46,7 +44,7 @@ namespace vMenuClient
 
             MenuItem getAllWeapons = new MenuItem("Get All Weapons", "Get all weapons.");
             MenuItem removeAllWeapons = new MenuItem("Remove All Weapons", "Removes all weapons in your inventory.");
-            MenuCheckboxItem unlimitedAmmo = new MenuCheckboxItem("Unlimited Ammo", "Unlimited ammunition supply.", UnlimitedAmmo);
+            MenuCheckboxItem unlimitedAmmo = new MenuCheckboxItem("Unlimited Ammo", "Unlimited ammonition supply.", UnlimitedAmmo);
             MenuCheckboxItem noReload = new MenuCheckboxItem("No Reload", "Never reload.", NoReload);
             MenuItem setAmmo = new MenuItem("Set All Ammo Count", "Set the amount of ammo in all your weapons.");
             MenuItem refillMaxAmmo = new MenuItem("Refill All Ammo", "Give all your weapons max ammo.");
@@ -133,7 +131,7 @@ namespace vMenuClient
             if (IsAllowed(Permission.WPParachute))
             {
                 // main parachute options menu setup
-                Menu parachuteMenu = Lm.GetMenu(new Menu("Parachute Options", "Parachute Options"));
+                Menu parachuteMenu = new Menu("Parachute Options", "Parachute Options");
                 MenuItem parachuteBtn = new MenuItem("Parachute Options", "All parachute related options can be changed here.") { Label = "→→→" };
 
                 MenuController.AddSubmenu(menu, parachuteMenu);
@@ -288,28 +286,28 @@ namespace vMenuClient
             MenuItem spacer = GetSpacerMenuItem("↓ Weapon Categories ↓");
             menu.AddMenuItem(spacer);
 
-            Menu handGuns = Lm.GetMenu(new Menu("Weapons", "Handguns"));
+            Menu handGuns = new Menu("Weapons", "Handguns");
             MenuItem handGunsBtn = new MenuItem("Handguns");
 
-            Menu rifles = Lm.GetMenu(new Menu("Weapons", "Assault Rifles"));
+            Menu rifles = new Menu("Weapons", "Assault Rifles");
             MenuItem riflesBtn = new MenuItem("Assault Rifles");
 
-            Menu shotguns = Lm.GetMenu(new Menu("Weapons", "Shotguns"));
+            Menu shotguns = new Menu("Weapons", "Shotguns");
             MenuItem shotgunsBtn = new MenuItem("Shotguns");
 
-            Menu smgs = Lm.GetMenu(new Menu("Weapons", "Sub-/Light Machine Guns"));
+            Menu smgs = new Menu("Weapons", "Sub-/Light Machine Guns");
             MenuItem smgsBtn = new MenuItem("Sub-/Light Machine Guns");
 
-            Menu throwables = Lm.GetMenu(new Menu("Weapons", "Throwables"));
+            Menu throwables = new Menu("Weapons", "Throwables");
             MenuItem throwablesBtn = new MenuItem("Throwables");
 
-            Menu melee = Lm.GetMenu(new Menu("Weapons", "Melee"));
+            Menu melee = new Menu("Weapons", "Melee");
             MenuItem meleeBtn = new MenuItem("Melee");
 
-            Menu heavy = Lm.GetMenu(new Menu("Weapons", "Heavy Weapons"));
+            Menu heavy = new Menu("Weapons", "Heavy Weapons");
             MenuItem heavyBtn = new MenuItem("Heavy Weapons");
 
-            Menu snipers = Lm.GetMenu(new Menu("Weapons", "Sniper Rifles"));
+            Menu snipers = new Menu("Weapons", "Sniper Rifles");
             MenuItem snipersBtn = new MenuItem("Sniper Rifles");
 
             MenuController.AddSubmenu(menu, handGuns);

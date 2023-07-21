@@ -81,18 +81,9 @@ namespace vMenuClient
             {
                 Tick += WeatherOptions;
             }
-            
             if (IsAllowed(Permission.TOMenu) && GetSettingsBool(Setting.vmenu_enable_time_sync))
             {
                 Tick += TimeOptions;
-            }
-
-            Tick += PlayerTimeOptions;
-            Tick += PlayerWeatherOptions;
-
-            if (IsAllowed(Permission.TPMenu))
-            {
-                Tick += TeleportOptions;
             }
 
             // Configuration based
@@ -891,6 +882,27 @@ namespace vMenuClient
             }
             #endregion
 
+            if (MainMenu.MiscSettingsMenu.KbTpToWaypoint)
+            {
+                if (IsAllowed(Permission.MSTeleportToWp))
+                {
+                    if (Game.IsControlJustReleased(0, (Control)MainMenu.MiscSettingsMenu.KbTpToWaypointKey)
+                        && Fading.IsFadedIn
+                        && !IsPlayerSwitchInProgress()
+                        && Game.CurrentInputMode == InputMode.MouseAndKeyboard)
+                    {
+                        if (Game.IsWaypointActive)
+                        {
+                            TeleportToWp();
+                            Notify.Success("Teleported to waypoint.");
+                        }
+                        else
+                        {
+                            Notify.Error("You need to set a waypoint first.");
+                        }
+                    }
+                }
+            }
             if (MainMenu.MiscSettingsMenu.KbDriftMode)
             {
                 if (IsAllowed(Permission.MSDriftMode))
@@ -956,7 +968,7 @@ namespace vMenuClient
                 // Press the B button on keyboard once to toggle.
                 else
                 {
-                    if (Game.IsControlJustReleased(0, Control.SpecialAbilitySecondary) && UpdateOnscreenKeyboard() != 0 && !Game.PlayerPed.IsInVehicle())
+                    if (Game.IsControlJustReleased(0, Control.SpecialAbilitySecondary) && !Game.PlayerPed.IsInVehicle())
                     {
                         await TogglePointing();
                     }
@@ -971,18 +983,18 @@ namespace vMenuClient
                     }
                     else
                     {
-                        SetTaskMoveNetworkSignalFloat(Game.PlayerPed.Handle, "Pitch", GetPointingPitch());
-                        SetTaskMoveNetworkSignalFloat(Game.PlayerPed.Handle, "Heading", GetPointingHeading());
-                        SetTaskMoveNetworkSignalBool(Game.PlayerPed.Handle, "isBlocked", GetPointingIsBlocked());
+                        N_0xd5bb4025ae449a4e(Game.PlayerPed.Handle, "Pitch", GetPointingPitch());
+                        N_0xd5bb4025ae449a4e(Game.PlayerPed.Handle, "Heading", GetPointingHeading());
+                        N_0xb0a6cfd2c69c1088(Game.PlayerPed.Handle, "isBlocked", GetPointingIsBlocked());
                         if (GetFollowPedCamViewMode() == 4)
                         {
-                            SetTaskMoveNetworkSignalBool(Game.PlayerPed.Handle, "isFirstPerson", true);
+                            N_0xb0a6cfd2c69c1088(Game.PlayerPed.Handle, "isFirstPerson", true);
                         }
                         else
                         {
-                            SetTaskMoveNetworkSignalBool(Game.PlayerPed.Handle, "isFirstPerson", false);
+                            N_0xb0a6cfd2c69c1088(Game.PlayerPed.Handle, "isFirstPerson", false);
                         }
-                        SetTaskMoveNetworkSignalFloat(Game.PlayerPed.Handle, "Speed", 0.25f);
+                        N_0xd5bb4025ae449a4e(Game.PlayerPed.Handle, "Speed", 0.25f);
                     }
                 }
             }
@@ -2284,12 +2296,12 @@ namespace vMenuClient
                                 }
                                 else
                                 {
-                                    gamerTags[p] = CreateMpGamerTag(p.Character.Handle, $" #{p.ServerId} | " + p.Name, false, false, "", 0);
+                                    gamerTags[p] = CreateMpGamerTag(p.Character.Handle, p.Name + $" [{p.ServerId}]", false, false, "", 0);
                                 }
                             }
                             else if (closeEnough)
                             {
-                                gamerTags.Add(p, CreateMpGamerTag(p.Character.Handle, $" #{p.ServerId} | " + p.Name, false, false, "", 0));
+                                gamerTags.Add(p, CreateMpGamerTag(p.Character.Handle, p.Name + $" [{p.ServerId}]", false, false, "", 0));
                             }
                             if (closeEnough && gamerTags.ContainsKey(p))
                             {
@@ -3155,58 +3167,5 @@ namespace vMenuClient
             }
         }
         #endregion
-
-        // Client Time and Weather
-        #region Time & Weather Options
-        public async Task PlayerWeatherOptions()
-        {
-            await Delay(100);
-            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
-            {
-                ClearOverrideWeather();
-                ClearWeatherTypePersist();
-                SetWeatherTypeOverTime(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection(), 0.0f);
-                SetWeatherTypePersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-                SetWeatherTypeNow(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-                SetWeatherTypeNowPersist(MainMenu.PlayerTimeWeatherOptionsMenu.weatherList.GetCurrentSelection());
-            }
-        }
-
-        public async Task PlayerTimeOptions()
-        {
-            await Delay(100);
-            if (MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu != null && MainMenu.PlayerTimeWeatherOptionsMenu.clientSidedEnabled.Checked)
-            {
-                NetworkOverrideClockTime(MainMenu.PlayerTimeWeatherOptionsMenu.timeDataList.ListIndex, 0, 0);
-            }
-        }
-        #endregion
-
-        public async Task TeleportOptions()
-        {
-            await Delay(100);
-            if (MainMenu.TeleportOptionsMenu.KbTpToWaypoint)
-            {
-                if (IsAllowed(Permission.TPTeleportToWp))
-                {
-                    if (Game.IsControlJustReleased(0, (Control)MainMenu.TeleportOptionsMenu.KbTpToWaypointKey)
-                        && Fading.IsFadedIn
-                        && !IsPlayerSwitchInProgress()
-                        && Game.CurrentInputMode == InputMode.MouseAndKeyboard)
-                    {
-                        if (Game.IsWaypointActive)
-                        {
-                            TeleportToWp();
-                            Notify.Success("Teleported to waypoint.");
-                        }
-                        else
-                        {
-                            Notify.Error("You need to set a waypoint first.");
-                        }
-                    }
-                }
-            }
-        }
     }
 }
-

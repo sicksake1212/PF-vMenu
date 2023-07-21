@@ -19,7 +19,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     
-    <PackageReference Include="CitizenFX.Core.Server" Version="1.0.6335">
+    <PackageReference Include="CitizenFX.Core.Server" Version="1.0.6302">
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
     
@@ -30,13 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="config\languages\*.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="config\addons.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="config\extras.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="config\locations.json">
@@ -46,9 +40,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="storage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="fxmanifest.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="System.Numerics.dll">

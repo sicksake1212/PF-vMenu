@@ -214,26 +214,11 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             { "weapon_ceramicpistol", GetLabelText("WTD_CERPST") },
             { "weapon_navyrevolver", GetLabelText("WTD_REV_NV") },
-            { "weapon_hazardcan", GetLabelText("WTD_HAZARDCAN") },
+            { "weapon_hazardcan", "Hazard Can" }, //(Does not have label text)
             // DLC CHRISTMAS2020 (v 2189)
             { "weapon_gadgetpistol", GetLabelText("WTD_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WTD_MLTRYRFL") },
-            { "weapon_combatshotgun", GetLabelText("WTD_CMBSHGN") },
-            // MPSECURITY DLC (v 2545)
-            { "weapon_emplauncher", GetLabelText("WTD_EMPL") },
-            { "weapon_heavyrifle", GetLabelText("WTD_HEAVYRIFLE") },
-            { "weapon_fertilizercan", GetLabelText("WTD_FERTILIZERCAN") },
-            { "weapon_stungun_mp", GetLabelText("WTD_STNGUNMP") },
-            //MPSUM2 DLC (V 2699)
-            { "weapon_tacticalrifle", GetLabelText("WTD_TACRIFLE") },
-            { "weapon_precisionrifle", GetLabelText("WTD_PRCSRIFLE") },
-            //MPCHRISTMAS3 DLC (V 2802)
-            { "weapon_acidpackage", GetLabelText("WTD_ACIDPACKAGE") },
-            { "weapon_candycane", GetLabelText("WTD_CANDYCANE") },
-            { "weapon_pistolxm3", GetLabelText("WTD_PISTOLXM3") },
-            { "weapon_railgunxm3", GetLabelText("WTD_RAILGUN") },
-            //MP2023_01 DLC (V 2944)
-            { "weapon_tecpistol", GetLabelText("WTD_TECPISTOL") },
+            { "weapon_combatshotgun", GetLabelText("WTD_CMBSHGN") }
         };
 
         public static readonly Dictionary<string, string> weaponNames = new Dictionary<string, string>()
@@ -332,26 +317,11 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             { "weapon_ceramicpistol", GetLabelText("WT_CERPST") },
             { "weapon_navyrevolver", GetLabelText("WT_REV_NV") },
-            { "weapon_hazardcan", GetLabelText("WT_HAZARDCAN") },
+            //{ "weapon_hazardcan", GetLabelText("WT_") }, (Does not have label text)
             // DLC CHRISTMAS2020 (v 2189)
             { "weapon_gadgetpistol", GetLabelText("WT_GDGTPST") },
             { "weapon_militaryrifle", GetLabelText("WT_MLTRYRFL") },
-            { "weapon_combatshotgun", GetLabelText("WT_CMBSHGN") },
-            // MPSECURITY DLC (v 2545)
-            { "weapon_emplauncher", GetLabelText("WT_EMPL") },
-            { "weapon_heavyrifle", GetLabelText("WT_HEAVYRIFLE") },
-            { "weapon_fertilizercan", GetLabelText("WT_FERTILIZERCAN") },
-            { "weapon_stungun_mp", GetLabelText("WT_STNGUNMP") },
-            //MPSUM2 DLC (V 2699)
-            { "weapon_tacticalrifle", GetLabelText("WT_TACRIFLE") },
-            { "weapon_precisionrifle", GetLabelText("WT_PRCSRIFLE") },
-            //MPCHRISTMAS3 DLC (V 2802)
-            { "weapon_acidpackage", GetLabelText("WT_ACIDPACKAGE") },
-            { "weapon_candycane", GetLabelText("WT_CANDYCANE") },
-            { "weapon_pistolxm3", GetLabelText("WT_PISTOLXM3") },
-            { "weapon_railgunxm3", GetLabelText("WT_RAILGUN") },
-            //MP2023_01 DLC (V 2944)
-            { "weapon_tecpistol", GetLabelText("WT_TECPISTOL") },
+            { "weapon_combatshotgun", GetLabelText("WT_CMBSHGN") }
         };
         #endregion
 
@@ -452,26 +422,11 @@ namespace vMenuClient
             // DLC CHRISTMAS2019 (v 1868)
             ["weapon_ceramicpistol"] = Permission.WPCeramicPistol,
             ["weapon_navyrevolver"] = Permission.WPNavyRevolver,
-            ["weapon_hazardcan"] = Permission.WPHazardCan,
+            //["weapon_hazardcan"] = Permission.WPHazardCan, (Does not have label text)
             // DLC CHRISTMAS2020 (v 2189)
             ["weapon_gadgetpistol"] = Permission.WPPericoPistol,
             ["weapon_militaryrifle"] = Permission.WPMilitaryRifle,
             ["weapon_combatshotgun"] = Permission.WPCombatShotgun,
-            // MPSECURITY DLC (v 2545)
-            ["weapon_emplauncher"] = Permission.WPEMPLauncher,
-            ["weapon_heavyrifle"] = Permission.WPHeavyRifle,
-            ["weapon_fertilizercan"] = Permission.WPFertilizerCan,
-            ["weapon_stungun_mp"] = Permission.WPStunGunMP,
-            //MPSUM2 DLC (V 2699)
-            ["weapon_tacticalrifle"] = Permission.WPTacticalRifle,
-            ["weapon_precisionrifle"] = Permission.WPPrecisionRifle,
-            //MPCHRISTMAS3 DLC (V 2802)
-            ["weapon_acidpackage"] = Permission.WPAcidPackage,
-            ["weapon_candycane"] = Permission.WPCandyCane,
-            ["weapon_pistolxm3"] = Permission.WPPistolXM3,
-            ["weapon_railgunxm3"] = Permission.WPRailgunXM3,
-            //MP2023_01 DLC (V 2944)
-            ["weapon_tecpistol"] = Permission.WPTecPistol,
         };
         #endregion
 
@@ -835,61 +790,7 @@ namespace vMenuClient
             ["COMPONENT_VINTAGEPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
             ["COMPONENT_VINTAGEPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
             // CHRISTMAS 2018 DLC (v 1604)
-            ["COMPONENT_RAYPISTOL_VARMOD_XMAS18"] = GetLabelText("WCT_VAR_RAY18"),
-            // MPHEIST3 DLC (v 1868)
-            ["COMPONENT_CERAMICPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_CERAMICPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
-            ["COMPONENT_CERAMICPISTOL_SUPP"] = GetLabelText("WCT_SUPP"),
-            // MPHEIST4 DLC (v 2189)
-            ["COMPONENT_MILITARYRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_MILITARYRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
-            ["COMPONENT_MILITARYRIFLE_SIGHT_01"] = GetLabelText("WCT_MRFL_SIGHT"),
-            // MPSECURITY DLC (v 2545)
-            ["COMPONENT_APPISTOL_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_STUD"),
-            ["COMPONENT_MICROSMG_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_WEED"),
-            ["COMPONENT_PUMPSHOTGUN_VARMOD_SECURITY"] = GetLabelText("WCT_VAR_BONE"),
-            ["COMPONENT_HEAVYRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_HEAVYRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
-            ["COMPONENT_HEAVYRIFLE_SIGHT_01"] = GetLabelText("WCT_HVYRFLE_SIG"),
-            ["COMPONENT_HEAVYRIFLE_CAMO1"] = GetLabelText("WCT_VAR_FAM"),
-            //MPSUM2 DLC (v 2699)
-            ["COMPONENT_TACTICALRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_TACTICALRIFLE_CLIP_02"] = GetLabelText("WCT_CLIP2"),
-            ["COMPONENT_PRECISIONRIFLE_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_AT_AR_FLSH_REH"] = GetLabelText("WCT_FLASH"),
-            // MPCHRISTMAS3 DLC (v 2802)
-            ["COMPONENT_PISTOLXM3_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_PISTOLXM3_SUPP"] = GetLabelText("WCT_SUPP"),
-            ["COMPONENT_MICROSMG_VARMOD_XM3"] = GetLabelText("WCT_MSMG_XM3"),
-            ["COMPONENT_PUMPSHOTGUN_VARMOD_XM3"] = GetLabelText("WCT_PUMPSHT_XM3"),
-            ["COMPONENT_PISTOL_MK2_VARMOD_XM3"] = GetLabelText("WCT_PISTMK2_XM3"),
-            ["COMPONENT_PISTOL_MK2_VARMOD_XM3_SLIDE"] = GetLabelText("WCT_PISTMK2_XM3"),
-            ["COMPONENT_BAT_VARMOD_XM3"] = GetLabelText("WCT_BAT_XM3"),
-            ["COMPONENT_BAT_VARMOD_XM3_01"] = GetLabelText("WCT_BAT_XM301"),
-            ["COMPONENT_BAT_VARMOD_XM3_02"] = GetLabelText("WCT_BAT_XM302"),
-            ["COMPONENT_BAT_VARMOD_XM3_03"] = GetLabelText("WCT_BAT_XM303"),
-            ["COMPONENT_BAT_VARMOD_XM3_04"] = GetLabelText("WCT_BAT_XM304"),
-            ["COMPONENT_BAT_VARMOD_XM3_05"] = GetLabelText("WCT_BAT_XM305"),
-            ["COMPONENT_BAT_VARMOD_XM3_06"] = GetLabelText("WCT_BAT_XM306"),
-            ["COMPONENT_BAT_VARMOD_XM3_07"] = GetLabelText("WCT_BAT_XM307"),
-            ["COMPONENT_BAT_VARMOD_XM3_08"] = GetLabelText("WCT_BAT_XM308"),
-            ["COMPONENT_BAT_VARMOD_XM3_09"] = GetLabelText("WCT_BAT_XM309"),
-            ["COMPONENT_KNIFE_VARMOD_XM3"] = GetLabelText("WCT_KNIFE_XM3"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_01"] = GetLabelText("WCT_KNIFE_XM301"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_02"] = GetLabelText("WCT_KNIFE_XM302"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_03"] = GetLabelText("WCT_KNIFE_XM303"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_04"] = GetLabelText("WCT_KNIFE_XM304"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_05"] = GetLabelText("WCT_KNIFE_XM305"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_06"] = GetLabelText("WCT_KNIFE_XM306"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_07"] = GetLabelText("WCT_KNIFE_XM307"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_08"] = GetLabelText("WCT_KNIFE_XM308"),
-            ["COMPONENT_KNIFE_VARMOD_XM3_09"] = GetLabelText("WCT_KNIFE_XM309"),
-            //MP2023_01 DLC (v 2944)
-            ["COMPONENT_TECPISTOL_CLIP_01"] = GetLabelText("WCT_CLIP1"),
-            ["COMPONENT_TECPISTOL_CLIP_02"] = GetLabelText("WCT_CLIP2"),
-            ["COMPONENT_MICROSMG_VARMOD_FRN"] = GetLabelText("WCT_MSMGFRN_VAR"),
-            ["COMPONENT_CARBINERIFLE_VARMOD_MICH"] = GetLabelText("WCT_CRBNMIC_VAR"),
-            ["COMPONENT_RPG_VARMOD_TVR"] = GetLabelText("WCT_RPGTVR_VAR"),
+            ["COMPONENT_RAYPISTOL_VARMOD_XMAS18"] = GetLabelText("WCT_VAR_RAY18")
         };
         #endregion
 

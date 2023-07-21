@@ -17,14 +17,14 @@ namespace vMenuClient
 
         private List<string> speeds = new List<string>()
         {
-            "Very Slow | 1/8",
-            "Slow | 2/8",
-            "Normal | 3/8",
-            "Fast | 4/8",
-            "Very Fast | 5/8",
-            "Extremely Fast | 6/8",
-            "Extremely Fast v2.0 | 7/8",
-            "Max Speed | 8/8"
+            "Very Slow",
+            "Slow",
+            "Normal",
+            "Fast",
+            "Very Fast",
+            "Extremely Fast",
+            "Extremely Fast v2.0",
+            "Max Speed"
         };
 
         public NoClip()
@@ -46,10 +46,6 @@ namespace vMenuClient
         {
             if (NoclipActive)
             {
-                if (vMenuShared.ConfigManager.GetSettingsBool(vMenuShared.ConfigManager.Setting.pfvmenu_moshnotify_setting))
-                {
-                    TriggerEvent("mosh_notify:notify", "SUCCESS", "<span class=\"text-white\">You are now in NoClip! Press F2 to turn off NoClip.</span>", "success", "success", 5000);
-                }
                 Scale = RequestScaleformMovie("INSTRUCTIONAL_BUTTONS");
                 while (!HasScaleformMovieLoaded(Scale))
                 {
@@ -120,18 +116,6 @@ namespace vMenuClient
                 SetEntityInvincible(noclipEntity, true);
 
                 Vector3 newPos;
-                Game.DisableControlThisFrame(0, Control.AccurateAim);
-                Game.DisableControlThisFrame(0, Control.Attack);
-                Game.DisableControlThisFrame(0, Control.Attack2);
-                Game.DisableControlThisFrame(0, Control.Aim);
-                Game.DisableControlThisFrame(0, Control.Cover);
-                Game.DisableControlThisFrame(0, Control.Detonate);
-                Game.DisableControlThisFrame(0, Control.MeleeAttack1);
-                Game.DisableControlThisFrame(0, Control.MeleeAttack2);
-                Game.DisableControlThisFrame(0, Control.MeleeAttackAlternate);
-                Game.DisableControlThisFrame(0, Control.MeleeAttackLight);
-                Game.DisableControlThisFrame(0, Control.MeleeAttackHeavy);
-                Game.DisableControlThisFrame(0, Control.MeleeBlock);
                 Game.DisableControlThisFrame(0, Control.MoveUpOnly);
                 Game.DisableControlThisFrame(0, Control.MoveUp);
                 Game.DisableControlThisFrame(0, Control.MoveUpDown);
@@ -142,45 +126,9 @@ namespace vMenuClient
                 Game.DisableControlThisFrame(0, Control.MoveLeftRight);
                 Game.DisableControlThisFrame(0, Control.MoveRight);
                 Game.DisableControlThisFrame(0, Control.MoveRightOnly);
+                Game.DisableControlThisFrame(0, Control.Cover);
                 Game.DisableControlThisFrame(0, Control.MultiplayerInfo);
-                Game.DisableControlThisFrame(0, Control.NextWeapon);
-                Game.DisableControlThisFrame(0, Control.PrevWeapon);
-                Game.DisableControlThisFrame(0, Control.SelectNextWeapon);
-                Game.DisableControlThisFrame(0, Control.SelectPrevWeapon);
-                Game.DisableControlThisFrame(0, Control.SelectWeapon);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponAutoRifle);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponHandgun);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponHeavy);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponMelee);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponSmg);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponSniper);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponSpecial);
-                Game.DisableControlThisFrame(0, Control.SelectWeaponUnarmed);
-                Game.DisableControlThisFrame(0, Control.ThrowGrenade);
-                Game.DisableControlThisFrame(0, Control.VehicleAim);
-                Game.DisableControlThisFrame(0, Control.VehicleAttack);
-                Game.DisableControlThisFrame(0, Control.VehicleAttack2);
-                Game.DisableControlThisFrame(0, Control.VehicleFlyAttack);
-                Game.DisableControlThisFrame(0, Control.VehicleFlyAttack2);
-                Game.DisableControlThisFrame(0, Control.VehicleFlyAttackCamera);
-                Game.DisableControlThisFrame(0, Control.VehicleFlySelectNextWeapon);
-                Game.DisableControlThisFrame(0, Control.VehicleFlySelectPrevWeapon);
-                Game.DisableControlThisFrame(0, Control.VehicleGunDown);
-                Game.DisableControlThisFrame(0, Control.VehicleGunLeft);
-                Game.DisableControlThisFrame(0, Control.VehicleGunLeftRight);
-                Game.DisableControlThisFrame(0, Control.VehicleGunRight);
-                Game.DisableControlThisFrame(0, Control.VehicleGunUp);
-                Game.DisableControlThisFrame(0, Control.VehicleGunUpDown);
                 Game.DisableControlThisFrame(0, Control.VehicleHeadlight);
-                Game.DisableControlThisFrame(0, Control.VehicleSelectNextWeapon);
-                Game.DisableControlThisFrame(0, Control.VehicleSelectPrevWeapon);
-                Game.DisableControlThisFrame(0, Control.VehiclePassengerAim);
-                Game.DisableControlThisFrame(0, Control.VehiclePassengerAttack);
-                Game.DisableControlThisFrame(0, Control.WeaponSpecial);
-                Game.DisableControlThisFrame(0, Control.WeaponWheelLeftRight);
-                Game.DisableControlThisFrame(0, Control.WeaponWheelNext);
-                Game.DisableControlThisFrame(0, Control.WeaponWheelPrev);
-                Game.DisableControlThisFrame(0, Control.WeaponWheelUpDown);
                 if (Game.PlayerPed.IsInVehicle())
                     Game.DisableControlThisFrame(0, Control.VehicleRadioWheel);
 
@@ -195,10 +143,6 @@ namespace vMenuClient
                         if (MovingSpeed == speeds.Count)
                         {
                             MovingSpeed = 0;
-                        }
-                        if (vMenuShared.ConfigManager.GetSettingsBool(vMenuShared.ConfigManager.Setting.pfvmenu_moshnotify_setting))
-                        {
-                            TriggerEvent("mosh_notify:notify", "SUCCESS", $"<span class=\"text-white\">Your NoClip speed is: {speeds[MovingSpeed]}.</span>", "success", "success", 3000);
                         }
                     }
 
@@ -233,7 +177,7 @@ namespace vMenuClient
                 }
                 float moveSpeed = MovingSpeed;
                 if (MovingSpeed > speeds.Count / 2)
-                {                    
+                {
                     moveSpeed *= 1.8f;
                 }
                 moveSpeed = moveSpeed / (1f / GetFrameTime()) * 60;

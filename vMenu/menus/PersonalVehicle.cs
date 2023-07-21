@@ -26,8 +26,6 @@ namespace vMenuClient
 
         public Menu VehicleDoorsMenu { get; internal set; } = null;
 
-        private static readonly LanguageManager Lm = new LanguageManager();
-
 
         /// <summary>
         /// Creates the menu.
@@ -41,7 +39,6 @@ namespace vMenuClient
             MenuItem setVehice = new MenuItem("Set Vehicle", "Sets your current vehicle as your personal vehicle. If you already have a personal vehicle set then this will override your selection.") { Label = "Current Vehicle: None" };
             MenuItem toggleEngine = new MenuItem("Toggle Engine", "Toggles the engine on or off, even when you're not inside of the vehicle. This does not work if someone else is currently using your vehicle.");
             MenuListItem toggleLights = new MenuListItem("Set Vehicle Lights", new List<string>() { "Force On", "Force Off", "Reset" }, 0, "This will enable or disable your vehicle headlights, the engine of your vehicle needs to be running for this to work.");
-            MenuListItem toggleStance = new MenuListItem("Vehicle Stance", new List<string>() { "Normal", "Lowered" }, 0, "This will increase or decrease your car's ride height. Note: This will only work with supported cars.");
             MenuItem kickAllPassengers = new MenuItem("Kick Passengers", "This will remove all passengers from your personal vehicle.");
             //MenuItem
             MenuItem lockDoors = new MenuItem("Lock Vehicle Doors", "This will lock all your vehicle doors for all players. Anyone already inside will always be able to leave the vehicle, even if the doors are locked.");
@@ -53,9 +50,9 @@ namespace vMenuClient
             MenuItem soundHorn = new MenuItem("Sound Horn", "Sounds the horn of the vehicle.");
             MenuItem toggleAlarm = new MenuItem("Toggle Alarm Sound", "Toggles the vehicle alarm sound on or off. This does not set an alarm. It only toggles the current sounding status of the alarm.");
             MenuCheckboxItem enableBlip = new MenuCheckboxItem("Add Blip For Personal Vehicle", "Enables or disables the blip that gets added when you mark a vehicle as your personal vehicle.", EnableVehicleBlip) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
-            MenuCheckboxItem exclusiveDriver = new MenuCheckboxItem("Exclusive Driver", "If enabled, then you will be the only one that can enter the drivers seat. Other players will not be able to drive the car, however, they can still be passengers.", false) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
+            MenuCheckboxItem exclusiveDriver = new MenuCheckboxItem("Exclusive Driver", "If enabled, then you will be the only one that can enter the drivers seat. Other players will not be able to drive the car. They can still be passengers.", false) { Style = MenuCheckboxItem.CheckboxStyle.Cross };
             //submenu
-            VehicleDoorsMenu = Lm.GetMenu(new Menu("Vehicle Doors", "Vehicle Doors Management"));
+            VehicleDoorsMenu = new Menu("Vehicle Doors", "Vehicle Doors Management");
             MenuController.AddSubmenu(menu, VehicleDoorsMenu);
             MenuController.BindMenuItem(menu, VehicleDoorsMenu, doorsMenuBtn);
 
@@ -63,7 +60,6 @@ namespace vMenuClient
             menu.AddMenuItem(setVehice);
 
             // Add conditional features.
-
 
             // Toggle engine.
             if (IsAllowed(Permission.PVToggleEngine))
@@ -75,12 +71,6 @@ namespace vMenuClient
             if (IsAllowed(Permission.PVToggleLights))
             {
                 menu.AddMenuItem(toggleLights);
-            }
-
-            // Toggle stance
-            if (IsAllowed(Permission.PVToggleStance))
-            {
-                menu.AddMenuItem(toggleStance);
             }
 
             // Kick vehicle passengers
@@ -156,22 +146,10 @@ namespace vMenuClient
                             SetVehicleLights(CurrentPersonalVehicle.Handle, 0);
                         }
                     }
-                    if (item == toggleStance)
-                    {
-                        PressKeyFob(CurrentPersonalVehicle);
-                        if (itemIndex == 0)
-                        {
-                            SetReduceDriftVehicleSuspension(CurrentPersonalVehicle.Handle, false);
-                        }
-                        else
-                        {
-                            SetReduceDriftVehicleSuspension(CurrentPersonalVehicle.Handle, true);
-                        }
-                    }
                 }
                 else
                 {
-                    Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
+                    Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
                 }
             };
 
@@ -194,7 +172,7 @@ namespace vMenuClient
                         }
                         else
                         {
-                            Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
+                            Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
                         }
 
                     }
@@ -333,7 +311,7 @@ namespace vMenuClient
                 }
                 else
                 {
-                    Notify.Error("You have not yet selected a Personal Vehicle, or your vehicle has been deleted. Set a Personal Vehicle before you can use these options.");
+                    Notify.Error("You have not yet selected a personal vehicle, or your vehicle has been deleted. Set a personal vehicle before you can use these options.");
                 }
             };
 

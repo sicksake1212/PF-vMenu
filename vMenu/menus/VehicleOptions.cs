@@ -18,7 +18,6 @@ namespace vMenuClient
         #region Variables
         // Menu variable, will be defined in CreateMenu()
         private Menu menu;
-        public static Dictionary<uint, Dictionary<int, string>> VehicleExtras;
 
         // Submenus
         public Menu VehicleModMenu { get; private set; }
@@ -54,8 +53,6 @@ namespace vMenuClient
         public float VehicleTorqueMultiplierAmount { get; private set; } = 2f;
         public float VehiclePowerMultiplierAmount { get; private set; } = 2f;
 
-        private static readonly LanguageManager Lm = new LanguageManager();
-
         private Dictionary<MenuItem, int> vehicleExtras = new Dictionary<MenuItem, int>();
         #endregion
 
@@ -70,7 +67,7 @@ namespace vMenuClient
 
             #region menu items variables
             // vehicle god mode menu
-            Menu vehGodMenu = Lm.GetMenu(new Menu("Vehicle God Mode", "Vehicle God Mode Options"));
+            Menu vehGodMenu = new Menu("Vehicle Godmode", "Vehicle Godmode Options");
             MenuItem vehGodMenuBtn = new MenuItem("God Mode Options", "Enable or disable specific damage types.") { Label = "→→→" };
             MenuController.AddSubmenu(menu, vehGodMenu);
 
@@ -153,7 +150,7 @@ namespace vMenuClient
                 radioIndex = index;
             }
 
-            MenuListItem radioStations = new MenuListItem("Default Radio Station", stationNames, radioIndex, "Select a default radio station to be set when spawning new car");
+            MenuListItem radioStations = new MenuListItem("Default radio station", stationNames, radioIndex, "Select a default radio station to be set when spawning new car");
 
             var tiresList = new List<string>() { "All Tires", "Tire #1", "Tire #2", "Tire #3", "Tire #4", "Tire #5", "Tire #6", "Tire #7", "Tire #8" };
             MenuListItem vehicleTiresList = new MenuListItem("Fix / Destroy Tires", tiresList, 0, "Fix or destroy a specific vehicle tire, or all of them at once. Note, not all indexes are valid for all vehicles, some might not do anything on certain vehicles.");
@@ -187,7 +184,7 @@ namespace vMenuClient
 
             #region Submenus
             // Submenu's
-            VehicleModMenu = Lm.GetMenu(new Menu("Mod Menu", "Vehicle Mods"));
+            VehicleModMenu = new Menu("Mod Menu", "Vehicle Mods");
             VehicleModMenu.InstructionalButtons.Add(Control.Jump, "Toggle Vehicle Doors");
             VehicleModMenu.ButtonPressHandlers.Add(new Menu.ButtonPressHandler(Control.Jump, Menu.ControlPressCheckType.JUST_PRESSED, new Action<Menu, Control>((m, c) =>
             {
@@ -208,13 +205,13 @@ namespace vMenuClient
                     }
                 }
             }), false));
-            VehicleDoorsMenu = Lm.GetMenu(new Menu("Vehicle Doors", "Vehicle Doors Management"));
-            VehicleWindowsMenu = Lm.GetMenu(new Menu("Vehicle Windows", "Vehicle Windows Management"));
-            VehicleComponentsMenu = Lm.GetMenu(new Menu("Vehicle Extras", "Vehicle Extras/Components"));
+            VehicleDoorsMenu = new Menu("Vehicle Doors", "Vehicle Doors Management");
+            VehicleWindowsMenu = new Menu("Vehicle Windows", "Vehicle Windows Management");
+            VehicleComponentsMenu = new Menu("Vehicle Extras", "Vehicle Extras/Components");
             VehicleLiveriesMenu = new Menu("Vehicle Liveries", "Vehicle Liveries");
-            VehicleColorsMenu = Lm.GetMenu(new Menu("Vehicle Colors", "Vehicle Colors"));
-            DeleteConfirmMenu = Lm.GetMenu(new Menu("Confirm Action", "Delete Vehicle, are you sure?"));
-            VehicleUnderglowMenu = Lm.GetMenu(new Menu("Vehicle Neon Kits", "Vehicle Neon Underglow Options"));
+            VehicleColorsMenu = new Menu("Vehicle Colors", "Vehicle Colors");
+            DeleteConfirmMenu = new Menu("Confirm Action", "Delete Vehicle, Are You Sure?");
+            VehicleUnderglowMenu = new Menu("Vehicle Neon Kits", "Vehicle Neon Underglow Options");
 
             MenuController.AddSubmenu(menu, VehicleModMenu);
             MenuController.AddSubmenu(menu, VehicleDoorsMenu);
@@ -934,7 +931,7 @@ namespace vMenuClient
 
             #region Vehicle Colors Submenu Stuff
             // primary menu
-            Menu primaryColorsMenu = Lm.GetMenu(new Menu("Vehicle Colors", "Primary Colors"));
+            Menu primaryColorsMenu = new Menu("Vehicle Colors", "Primary Colors");
             MenuController.AddSubmenu(VehicleColorsMenu, primaryColorsMenu);
 
             MenuItem primaryColorsBtn = new MenuItem("Primary Color") { Label = "→→→" };
@@ -942,7 +939,7 @@ namespace vMenuClient
             MenuController.BindMenuItem(VehicleColorsMenu, primaryColorsMenu, primaryColorsBtn);
 
             // secondary menu
-            Menu secondaryColorsMenu = Lm.GetMenu(new Menu("Vehicle Colors", "Secondary Colors"));
+            Menu secondaryColorsMenu = new Menu("Vehicle Colors", "Secondary Colors");
             MenuController.AddSubmenu(VehicleColorsMenu, secondaryColorsMenu);
 
             MenuItem secondaryColorsBtn = new MenuItem("Secondary Color") { Label = "→→→" };
@@ -955,7 +952,6 @@ namespace vMenuClient
             List<string> metals = new List<string>();
             List<string> util = new List<string>();
             List<string> worn = new List<string>();
-            List<string> chameleon = new List<string>();
             List<string> wheelColors = new List<string>() { "Default Alloy" };
 
             // Just quick and dirty solution to put this in a new enclosed section so that we can still use 'i' as a counter in the other code parts.
@@ -992,13 +988,6 @@ namespace vMenuClient
                 foreach (var vc in VehicleData.WornColors)
                 {
                     worn.Add($"{GetLabelText(vc.label)} ({i + 1}/{VehicleData.WornColors.Count})");
-                    i++;
-                }
-
-                i = 0;
-                foreach (var vc in VehicleData.ChameleonColors)
-                {
-                    chameleon.Add($"{GetLabelText(vc.label)} ({i + 1}/{VehicleData.ChameleonColors.Count})");
                     i++;
                 }
 
@@ -1093,9 +1082,6 @@ namespace vMenuClient
                             case 5:
                                 primaryColor = VehicleData.WornColors[newIndex].id;
                                 break;
-                            case 6:
-                                primaryColor = VehicleData.ChameleonColors[newIndex].id;
-                                break;
                         }
                         SetVehicleColours(veh.Handle, primaryColor, secondaryColor);
                     }
@@ -1121,9 +1107,6 @@ namespace vMenuClient
                                 break;
                             case 6:
                                 secondaryColor = VehicleData.WornColors[newIndex].id;
-                                break;
-                            case 7:
-                                secondaryColor = VehicleData.ChameleonColors[newIndex].id;
                                 break;
                         }
                         SetVehicleColours(veh.Handle, primaryColor, secondaryColor);
@@ -1174,7 +1157,6 @@ namespace vMenuClient
                 var metalList = new MenuListItem("Metals", metals, 0);
                 var utilList = new MenuListItem("Util", util, 0);
                 var wornList = new MenuListItem("Worn", worn, 0);
-                var chameleonList = new MenuListItem("Chameleon", chameleon, 0);
 
                 if (i == 0)
                 {
@@ -1184,7 +1166,6 @@ namespace vMenuClient
                     primaryColorsMenu.AddMenuItem(metalList);
                     primaryColorsMenu.AddMenuItem(utilList);
                     primaryColorsMenu.AddMenuItem(wornList);
-                    primaryColorsMenu.AddMenuItem(chameleonList);
 
                     primaryColorsMenu.OnListIndexChange += HandleListIndexChanges;
                 }
@@ -1197,7 +1178,6 @@ namespace vMenuClient
                     secondaryColorsMenu.AddMenuItem(metalList);
                     secondaryColorsMenu.AddMenuItem(utilList);
                     secondaryColorsMenu.AddMenuItem(wornList);
-                    secondaryColorsMenu.AddMenuItem(chameleonList);
 
                     secondaryColorsMenu.OnListIndexChange += HandleListIndexChanges;
                 }
@@ -1473,11 +1453,6 @@ namespace vMenuClient
                     // Check if the vehicle exists, it's actually a vehicle, it's not dead/broken and the player is in the drivers seat.
                     if (veh != null && veh.Exists() && !veh.IsDead && veh.Driver == Game.PlayerPed)
                     {
-                        Dictionary<int, string> extraLabels;
-                        if (!VehicleExtras.TryGetValue((uint)veh.Model.Hash, out extraLabels))
-                        {
-                            extraLabels = new Dictionary<int, string>();
-                        }
                         //List<int> extraIds = new List<int>();
                         // Loop through all possible extra ID's (AFAIK: 0-14).
                         for (var extra = 0; extra < 14; extra++)
@@ -1489,10 +1464,7 @@ namespace vMenuClient
                                 //extraIds.Add(extra);
 
                                 // Create a checkbox for it.
-                                string extraLabel;
-                                if (!extraLabels.TryGetValue(extra, out extraLabel))
-                                    extraLabel = $"Extra #{extra}";
-                                MenuCheckboxItem extraCheckbox = new MenuCheckboxItem(extraLabel, extra.ToString(), veh.IsExtraOn(extra));
+                                MenuCheckboxItem extraCheckbox = new MenuCheckboxItem($"Extra #{extra}", extra.ToString(), veh.IsExtraOn(extra));
                                 // Add the checkbox to the menu.
                                 VehicleComponentsMenu.AddMenuItem(extraCheckbox);
 
@@ -1839,8 +1811,7 @@ namespace vMenuClient
                 MenuCheckboxItem toggleCustomWheels = new MenuCheckboxItem("Toggle Custom Wheels", "Press this to add or remove ~y~custom~s~ wheels.", GetVehicleModVariation(veh.Handle, 23));
                 MenuCheckboxItem xenonHeadlights = new MenuCheckboxItem("Xenon Headlights", "Enable or disable ~b~xenon ~s~headlights.", IsToggleModOn(veh.Handle, 22));
                 MenuCheckboxItem turbo = new MenuCheckboxItem("Turbo", "Enable or disable the ~y~turbo~s~ for this vehicle.", IsToggleModOn(veh.Handle, 18));
-                MenuCheckboxItem bulletProofTires = new MenuCheckboxItem("Bulletproof Tires", "Enable or disable ~y~Bulletproof tires~s~ for this vehicle.", !GetVehicleTyresCanBurst(veh.Handle));
-                MenuCheckboxItem driftTires = new MenuCheckboxItem("Low-Grip Tires", "Enable or disable ~y~Low-Grip tires~s~ for this vehicle.", GetDriftTyresEnabled(veh.Handle));
+                MenuCheckboxItem bulletProofTires = new MenuCheckboxItem("Bullet Proof Tires", "Enable or disable ~y~bullet proof tires~s~ for this vehicle.", !GetVehicleTyresCanBurst(veh.Handle));
 
                 // Add the checkboxes to the menu.
                 VehicleModMenu.AddMenuItem(toggleCustomWheels);
@@ -1854,7 +1825,6 @@ namespace vMenuClient
                 VehicleModMenu.AddMenuItem(headlightColor);
                 VehicleModMenu.AddMenuItem(turbo);
                 VehicleModMenu.AddMenuItem(bulletProofTires);
-                VehicleModMenu.AddMenuItem(driftTires);
                 // Create a list of tire smoke options.
                 List<string> tireSmokes = new List<string>() { "Red", "Orange", "Yellow", "Gold", "Light Green", "Dark Green", "Light Blue", "Dark Blue", "Purple", "Pink", "Black" };
                 Dictionary<string, int[]> tireSmokeColors = new Dictionary<string, int[]>()
@@ -1948,11 +1918,6 @@ namespace vMenuClient
                     else if (item2 == bulletProofTires)
                     {
                         SetVehicleTyresCanBurst(veh.Handle, !_checked);
-                    }
-                    // Low Grip Tires
-                    else if (item2 == driftTires)
-                    {
-                        SetDriftTyresEnabled(veh.Handle, _checked);
                     }
                     // Custom Wheels
                     else if (item2 == toggleCustomWheels)

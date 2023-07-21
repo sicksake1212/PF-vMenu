@@ -34,7 +34,6 @@ namespace vMenuClient
         {
             // Add event handlers.
             EventHandlers.Add("vMenu:SetAddons", new Action(SetAddons));
-            EventHandlers.Add("vMenu:SetExtras", new Action(SetExtras));
             EventHandlers.Add("vMenu:SetPermissions", new Action<string>(MainMenu.SetPermissions));
             EventHandlers.Add("vMenu:GoToPlayer", new Action<string>(SummonPlayer));
             EventHandlers.Add("vMenu:KillMe", new Action<string>(KillMe));
@@ -109,7 +108,6 @@ namespace vMenuClient
         private void SetAddons()
         {
             // reset addons
-            VehicleSpawner.Brand = new Dictionary<string, uint>();
             VehicleSpawner.AddonVehicles = new Dictionary<string, uint>();
             WeaponOptions.AddonWeapons = new Dictionary<string, uint>();
             PlayerAppearance.AddonPeds = new Dictionary<string, uint>();
@@ -118,39 +116,9 @@ namespace vMenuClient
             try
             {
                 // load new addons.
-                var brands = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(jsonData);
-
-                // load vehicles - Brands
-                if (brands.ContainsKey("brands"))
-                {
-                    foreach (string element in brands["brands"])
-                    {
-                        if (!VehicleSpawner.Brand.ContainsKey(element))
-                        {
-                            VehicleSpawner.Brand.Add(element, (uint)GetHashKey(element));
-
-                            var veh_addons = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(jsonData);
-
-                            if (veh_addons.ContainsKey(element))
-                                foreach (string addon in veh_addons[element])
-                                {
-                                    string addonname = element + addon;
-                                    if (!VehicleSpawner.AddonVehicles.ContainsKey(addon))
-                                        VehicleSpawner.AddonVehicles.Add(addon, (uint)GetHashKey(addonname));
-                                    else
-                                        Debug.WriteLine($"[vMenu] [Error] Your addons.json file contains 2 or more entries with the same vehicle name! ({addon}) Please remove duplicate lines!");
-                                }
-                        }
-                        else
-                        {
-                            Debug.WriteLine($"[vMenu] [Error] Your addons.json file contains 2 or more entries with the same brand name! ({element}) Please remove duplicate lines!");
-                        }
-                    }
-                }
-
                 var addons = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(jsonData);
 
-                // load vehicles - Regular
+                // load vehicles
                 if (addons.ContainsKey("vehicles"))
                 {
                     foreach (string addon in addons["vehicles"])
@@ -190,48 +158,6 @@ namespace vMenuClient
             {
                 Debug.WriteLine($"\n\n^1[vMenu] [ERROR] ^7Your addons.json file contains a problem! Error details: {ex.Message}\n\n");
             }
-        }
-
-        /// <summary>
-        /// Sets the extras labels from the extras.json file.
-        /// </summary>
-        private void SetExtras()
-        {
-            // reset addons
-            VehicleOptions.VehicleExtras = new Dictionary<uint, Dictionary<int, string>>();
-
-            string jsonData = LoadResourceFile(GetCurrentResourceName(), "config/extras.json") ?? "{}";
-
-            try
-            {
-                // load new extras.
-                var extras = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<int, string>>>(jsonData);
-
-                foreach (string model in extras.Keys)
-                {
-                    uint modelHash = (uint)GetHashKey(model);
-
-                    if (extras[model] != null && extras[model].Count > 0)
-                    {
-                        if (!VehicleOptions.VehicleExtras.ContainsKey(modelHash) || VehicleOptions.VehicleExtras[modelHash] == null)
-                            VehicleOptions.VehicleExtras.Add(modelHash, extras[model]);
-                        else
-                        {
-                            foreach (int extra in extras[model].Keys)
-                            {
-                                if (!VehicleOptions.VehicleExtras[modelHash].ContainsKey(extra))
-                                    VehicleOptions.VehicleExtras[modelHash].Add(extra, extras[model][extra]);
-                                else
-                                    Debug.WriteLine($"[vMenu] [Warning] Your extras.json file contains 2 or more entries with the same extra index! ({model}, Extra {extra}) Please remove duplicate!");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (JsonReaderException ex)
-            {
-                Debug.WriteLine($"\n\n^1[vMenu] [ERROR] ^7Your extras.json file contains a problem! Error details: {ex.Message}\n\n");
-            }
 
             MainMenu.ConfigOptionsSetupComplete = true;
         }
@@ -251,7 +177,6 @@ namespace vMenuClient
         /// </summary>
         private void GoodBye()
         {
-            Log("what a ######.");
             ForceSocialClubUpdate();
         }
 
@@ -289,7 +214,6 @@ namespace vMenuClient
         {
             await UpdateWeatherParticles();
             SetArtificialLightsState(IsBlackoutEnabled);
-            SetArtificialLightsStateAffectsVehicles(false);
             if (GetNextWeatherType() != GetHashKey(GetServerWeather))
             {
                 SetWeatherTypeOvertimePersist(GetServerWeather, (float)WeatherChangeTime);
@@ -456,7 +380,6 @@ namespace vMenuClient
         /// <param name="jsonData"></param>
         private void UpdateTeleportLocations(string jsonData)
         {
-            TeleportOptions.TpLocations = JsonConvert.DeserializeObject<List<vMenuShared.ConfigManager.TeleportLocation>>(jsonData);
             MiscSettings.TpLocations = JsonConvert.DeserializeObject<List<vMenuShared.ConfigManager.TeleportLocation>>(jsonData);
         }
     }

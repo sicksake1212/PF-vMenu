@@ -38,8 +38,6 @@ namespace vMenuClient
         public static VehicleSpawner VehicleSpawnerMenu { get; private set; }
         public static PlayerAppearance PlayerAppearanceMenu { get; private set; }
         public static MpPedCustomization MpPedCustomizationMenu { get; private set; }
-        public static PlayerTimeWeatherOptions PlayerTimeWeatherOptionsMenu { get; private set; }
-        public static TeleportOptions TeleportOptionsMenu { get; private set; }
         public static TimeOptions TimeOptionsMenu { get; private set; }
         public static WeatherOptions WeatherOptionsMenu { get; private set; }
         public static WeaponOptions WeaponOptionsMenu { get; private set; }
@@ -59,7 +57,6 @@ namespace vMenuClient
         public static bool DisableControls { get { return MenuController.DisableMenuButtons; } set { MenuController.DisableMenuButtons = value; } }
 
         private const int currentCleanupVersion = 2;
-        private static readonly LanguageManager Lm = new LanguageManager();
         #endregion
 
         /// <summary>
@@ -68,9 +65,6 @@ namespace vMenuClient
         public MainMenu()
         {
             PlayersList = new NativePlayerList(Players);
-
-            // Get the languages.
-            LanguageManager.Languages = GetLanguages();
 
             #region cleanup unused kvps
             int tmp_kvp_handle = StartFindKvp("");
@@ -256,17 +250,6 @@ namespace vMenuClient
                             Debug.WriteLine("\nEnd of vMenu dump!");
                             Debug.WriteLine("\n########################### vMenu ###########################");
                         }
-                        else if (args[0].ToString().ToLower() == "dumplang")
-                        {
-                            if (IsAllowed(Permission.DumpLang))
-                            {
-                                TriggerEvent("vMenu:DumpLanguageTamplate:Client");
-                            }
-                            else
-                            {
-                                Notify.Error("This is only for admins!");
-                            }
-                        }
                     }
                     else
                     {
@@ -436,10 +419,10 @@ namespace vMenuClient
             }
 
             // Create the main menu.
-            Menu = Lm.GetMenu(new Menu(Game.Player.Name, "Main Menu"));
-            PlayerSubmenu = Lm.GetMenu(new Menu(Game.Player.Name, "Player Related Options"));
-            VehicleSubmenu = Lm.GetMenu(new Menu(Game.Player.Name, "Vehicle Related Options"));
-            WorldSubmenu = Lm.GetMenu(new Menu(Game.Player.Name, "World Options"));
+            Menu = new Menu(Game.Player.Name, "Main Menu");
+            PlayerSubmenu = new Menu(Game.Player.Name, "Player Related Options");
+            VehicleSubmenu = new Menu(Game.Player.Name, "Vehicle Related Options");
+            WorldSubmenu = new Menu(Game.Player.Name, "World Options");
 
             // Add the main menu to the menu pool.
             MenuController.AddMenu(Menu);
@@ -451,9 +434,6 @@ namespace vMenuClient
 
             // Create all (sub)menus.
             CreateSubmenus();
-
-            // Grab the original language 
-            LanguageManager.UpdateOriginalLanguage();
 
             if (!GetSettingsBool(Setting.vmenu_disable_player_stats_setup))
             {
@@ -564,17 +544,12 @@ namespace vMenuClient
         /// </summary>
         /// <param name="submenu"></param>
         /// <param name="menuButton"></param>
-        private static void AddMenu(Menu parentMenu, Menu submenu, MenuItem menuButton, bool grabForTranslation = true)
+        private static void AddMenu(Menu parentMenu, Menu submenu, MenuItem menuButton)
         {
             parentMenu.AddMenuItem(menuButton);
             MenuController.AddSubmenu(parentMenu, submenu);
             MenuController.BindMenuItem(parentMenu, submenu, menuButton);
             submenu.RefreshIndex();
-
-            // Less code = better
-            Lm.GetMenu(parentMenu);
-            if (grabForTranslation)
-                Lm.GetMenu(submenu);
         }
         #endregion
 
@@ -782,29 +757,6 @@ namespace vMenuClient
                 };
             }
 
-            {
-                PlayerTimeWeatherOptionsMenu = new PlayerTimeWeatherOptions();
-                Menu menu2 = PlayerTimeWeatherOptionsMenu.GetMenu();
-                MenuItem button2 = new MenuItem("Time & Weather Options", "Change all time & weather related options here.")
-                {
-                    Label = "→→→"
-                };
-                AddMenu(Menu, menu2, button2);
-            }
-
-            // Add Teleport Menu.
-            if (IsAllowed(Permission.TPMenu))
-            {
-                TeleportOptionsMenu = new TeleportOptions();
-                Menu menu = TeleportOptionsMenu.GetMenu();
-                MenuItem button = new MenuItem("Teleport Related Options", "Open this submenu for teleport options.")
-                {
-                    Label = "→→→"
-                };
-                AddMenu(Menu, menu, button);
-            }
-
-
             // Add Voice Chat Menu.
             if (IsAllowed(Permission.VCMenu))
             {
@@ -827,10 +779,6 @@ namespace vMenuClient
                 AddMenu(Menu, menu, button);
             }
 
-            // Add a Spacer Here
-            MenuItem spacer = GetSpacerMenuItem("~y~↓ Miscellaneous ↓");
-            Menu.AddMenuItem(spacer);
-
             // Add misc settings menu.
             {
                 MiscSettingsMenu = new MiscSettings();
@@ -849,7 +797,7 @@ namespace vMenuClient
             {
                 Label = "→→→"
             };
-            AddMenu(Menu, sub, btn, false);
+            AddMenu(Menu, sub, btn);
 
             // Refresh everything.
             MenuController.Menus.ForEach((m) => m.RefreshIndex());

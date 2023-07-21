@@ -19,7 +19,6 @@ namespace vMenuShared
             DontBanMe,
             NoClip,
             Staff,
-            DumpLang,
             #endregion
 
             // Online Players
@@ -149,7 +148,6 @@ namespace vMenuShared
             PVAll,
             PVToggleEngine,
             PVToggleLights,
-            PVToggleStance,
             PVKickPassengers,
             PVLockDoors,
             PVDoors,
@@ -167,16 +165,6 @@ namespace vMenuShared
             PASpawnSaved,
             PASpawnNew,
             PAAddonPeds,
-            #endregion
-
-            // Teleport Options
-            #region teleport options
-            TPMenu,
-            TPAll,
-            TPTeleportToWp,
-            TPTeleportToCoord,
-            TPTeleportLocations,
-            TPTeleportSaveLocation,
             #endregion
 
             // Time Options
@@ -308,25 +296,10 @@ namespace vMenuShared
             WPStoneHatchet, // xmas 2018 dlc (1604)
             WPCeramicPistol, // xmas 2019 dlc (1868)
             WPNavyRevolver, // xmas 2019 dlc (1868)
-            WPHazardCan, // xmas 2019 dlc (1868) (Does not have label text)
+            //WPHazardCan, // xmas 2019 dlc (1868) (Does not have label text)
             WPPericoPistol, // xmas 2020 dlc (2189)
             WPMilitaryRifle, // xmas 2020 dlc (2189)
             WPCombatShotgun, // xmas 2020 dlc (2189)
-            // MPSECURITY DLC (v 2545)
-            WPEMPLauncher,
-            WPHeavyRifle,
-            WPFertilizerCan,
-            WPStunGunMP,
-            // MPSUM2 DLC (v 2699)
-            WPPrecisionRifle,
-            WPTacticalRifle,
-            // MPCHRISTMAS3 DLC (v 2802)
-            WPAcidPackage,
-            WPCandyCane,
-            WPPistolXM3,
-            WPRailgunXM3,
-            // MP2023_01 DLC (V 2944)
-            WPTecPistol,
             #endregion
 
             // Weapon Loadouts Menu
@@ -554,7 +527,6 @@ namespace vMenuShared
 
             // Also tell the client to do the addons setup.
             player.TriggerEvent("vMenu:SetAddons");
-            player.TriggerEvent("vMenu:SetExtras");
             player.TriggerEvent("vMenu:UpdateTeleportLocations", Newtonsoft.Json.JsonConvert.SerializeObject(ConfigManager.GetTeleportLocationsData()));
         }
 #endif
@@ -625,9 +597,6 @@ namespace vMenuShared
                     break;
                 case "VC":
                     prefix += "VoiceChat";
-                    break;
-                case "TP":
-                    prefix += "TeleportOptions";
                     break;
                 default:
                     return prefix + name;
